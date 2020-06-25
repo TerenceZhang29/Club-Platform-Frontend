@@ -1,0 +1,99 @@
+body {
+  font-family: Arial, Helvetica, sans-serif; 
+  background: #E5E5E5;
+}
+
+h1 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 50px;
+}
+
+.filter-list-container {
+  display: flex;
+}
+
+.filter {
+  flex: 1 200px;
+  background-color: #c4c4c4;
+  border-radius: 15px;
+  margin: 0 20px 0 20px;
+
+  
+}
+
+.clublist {
+  
+  flex: 3 600px;
+  height: 550px;
+   
+  background-color: #E4CACA;
+  border-radius: 15px;
+  margin: 0 30px 0 20px;
+  padding: 10px 5px 10px 5px;
+  overflow-y: scroll;
+
+}
+
+.club_bt {
+  background-color: #C4C4C4;
+  height: 120px;
+  border-radius: 10px;
+ 
+  /* border: black;
+  border-style: solid;
+  border-width: 10px; */
+  
+  margin: 20px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
+
+
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-template-rows: repeat(2,1fr);
+
+
+}
+
+.club_bt img {
+  height: 120px;
+  width: 120px;
+
+  /* border: black;
+  border-style: solid;
+  border-width: 5px; */
+
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.club_bt h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+
+  /* border: black;
+  border-style: solid;
+  border-width: 5px; */
+  
+  grid-column-start: 2;
+  grid-column-end: 3;
+
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.club_bt p {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+
+  /* border: black;
+  border-style: solid;
+  border-width: 5px; */
+  
+  grid-column-start: 2;
+  grid-column-end: 5;
+
+  grid-row-start: 2;
+}
+
