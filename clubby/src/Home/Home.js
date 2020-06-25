@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button } from 'react-bootstrap';
 import history from './../history';
-import "./Home.css";
+import "../css/Home.css";
 
 export default class Home extends Component {
   render() {
