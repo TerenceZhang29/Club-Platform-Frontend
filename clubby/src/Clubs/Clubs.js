@@ -5,7 +5,6 @@ class Clubs extends Component {
   render() {
     return (
       <div class="clublistpage">
-
         <body>
           <h1>Clubs</h1>
           <div class='filter-list-container'>
@@ -13,7 +12,6 @@ class Clubs extends Component {
             <ClubList />
           </div>
         </body>
-
       </div>
     );
   }
@@ -82,6 +80,7 @@ class ClubButton extends React.Component {
       </div>
     )
   }
+}
 
   render() {
     return (

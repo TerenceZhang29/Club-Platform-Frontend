@@ -1,26 +1,42 @@
 import React, { Component } from 'react';
 import { Card, ListGroup } from 'react-bootstrap';
+import '../css/cupInfo.css'
 
 class CupInfo extends Component {
 
     render() {
         return (
-            <div style={{ display: 'flex', justifyContent: 'center', padding: 30 }}>
-                <div>
-                    <h2>Welcome to Cornell Cup Robotics!</h2>
-                    <button>Register</button>
-                    <label>About</label>
-                    <p>Cornell Cup Robotics is a student run organization at Cornell University that designs, 
-                       manufactures, and creates innovative robotics oriented projects. Over 50 Cornell 
-                       students work to create dynamic projects that bolster the ingenuity of embedded 
-                       technologies. Since 2010, our projects have been showcased at many conferences and we 
-                       have received support from numerous robotics and technology companies.
-
-                       The objective of this team is to provide a valuable, practical experience for students
-                       with robotics and embedded systems, and to demonstrate the extraordinary technology 
-                       that we are able to create.</p>
+            <body>
+            <div class="top">
+                <img src={require('./hack.png')}></img>
+                <div class="header">
+                    <h2>Big Red Hacks</h2>
+                    <label>Jun 1st - Jun 3rd, 2020</label>
+                    <div class="button">
+                        <button>Register</button>
+                        <button>Interested</button>
+                    </div>
                 </div>
             </div>
+
+            <div class="middle">
+                <p>BigRed//Hacks is the oldest student-run, large-scale hackathon at Cornell University.
+                   Across three days, Cornell and non-Cornell students alike gather to build the coolest 
+                   and most innovative projects, meet amazing people, and win some prizes along the way!
+                </p>
+                <div class="info">
+                    <label>Link</label>
+                    <label>Email</label>
+                    <label>Phone</label>
+                    <label>Location</label>
+                </div>
+            </div>
+
+            <div class="bottom">
+                <h4>Who is going?</h4>
+                <p>Ruiqi Zhu, Hantian Zhang, Haocheng Shen, Chenyu Wei, Yang Shen</p>
+            </div>
+            </body>
         );
     }
 }
