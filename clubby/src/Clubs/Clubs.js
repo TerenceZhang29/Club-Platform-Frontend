@@ -18,23 +18,46 @@ class Clubs extends Component {
 }
 
 class Filter extends React.Component {
+
+  renderClickableBox(text) {
+    return (
+      <div class="filter_check_box">
+        <p><a href=""></a>{text}</p>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div class="filter">
         <h2>Filter</h2>
         <div class='subscribed_clubs_filter'>
-          <h3>Subscribed Clubs</h3>
+          {this.renderClickableBox('Subscribed Clubs')}
         </div>
         <div class='search_bar_filter'>
-          <div>Search</div>
+          <p>Search</p>
           <textarea></textarea>
         </div>
         <div class='category_search_filter'>
-          <div>Category</div>
+          <p>Category</p>
           <textarea></textarea>
+          <div class='category_list'>
+            {this.renderClickableBox("Engineering")}
+            {this.renderClickableBox("Business")}
+            {this.renderClickableBox("Sport")}
+            {this.renderClickableBox("Prelaw")}
+            {this.renderClickableBox("Art")}
+          </div>
+
         </div>
         <div class='size_filter'>
-          <div>Size</div>
+          <p>Size</p>
+          <div class='category_list'>
+            {this.renderClickableBox("10-20")}
+            {this.renderClickableBox("20-50")}
+            {this.renderClickableBox("50-100")}
+            {this.renderClickableBox("100-200")}
+          </div>
         </div>
       </div>
     );
@@ -50,6 +73,7 @@ class ClubList extends React.Component {
         <ClubButton title={"Cornell Chinese Drama Society"} logo={require('./App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} />
         <ClubButton title={"Cornell Appdev"} logo={require('./App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} />
         <ClubButton title={"Cornell Appdev"} logo={require('./App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} />
+
       </div>
     );
   }
