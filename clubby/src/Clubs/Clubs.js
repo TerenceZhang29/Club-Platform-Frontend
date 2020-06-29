@@ -24,6 +24,20 @@ class Filter extends React.Component {
     return (
       <div class="filter">
         <h2>Filter</h2>
+        <div class='subscribed_clubs_filter'>
+          <h3>Subscribed Clubs</h3>
+        </div>
+        <div class='search_bar_filter'>
+          <div>Search</div>
+          <textarea></textarea>
+        </div>
+        <div class='category_search_filter'>
+          <div>Category</div>
+          <textarea></textarea>
+        </div>
+        <div class='size_filter'>
+          <div>Size</div>
+        </div>
       </div>
     );
   }
@@ -34,8 +48,8 @@ class ClubList extends React.Component {
     return (
       <div class="clublist">
         <ClubButton title={"Cornell Appdev"} logo={require('./App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} />
-        <ClubButton title={"Cornell Appdev"} logo={require('./App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} />
-        <ClubButton title={"Cornell Appdev"} logo={require('./App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} />
+        <ClubButton title={"Cornell Cup Robotics"} logo={require('./App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science", "mechanics"]} />
+        <ClubButton title={"Cornell Chinese Drama Society"} logo={require('./App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} />
         <ClubButton title={"Cornell Appdev"} logo={require('./App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} />
         <ClubButton title={"Cornell Appdev"} logo={require('./App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} />
       </div>
