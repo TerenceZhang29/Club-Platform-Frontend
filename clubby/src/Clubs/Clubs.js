@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/Clubs.css'
+import '../css/Clubs.css';
 
 class Clubs extends Component {
   render() {
@@ -80,7 +80,7 @@ class ClubButton extends React.Component {
       </div>
     )
   }
-}
+
 
   render() {
     return (
