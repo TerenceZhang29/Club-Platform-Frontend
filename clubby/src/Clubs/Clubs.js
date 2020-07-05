@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../css/Clubs.css';
+import history from './../history';
 
 class Clubs extends Component {
   render() {
@@ -45,13 +46,13 @@ class Filter extends React.Component {
             {this.renderClickableBox("Engineering")}
             {this.renderClickableBox("Business")}
             {this.renderClickableBox("Sport")}
-            {this.renderClickableBox("Prelaw")}
+            {this.renderClickableBox("Pre-law")}
             {this.renderClickableBox("Art")}
           </div>
 
         </div>
         <div class='size_filter'>
-          <p>Size</p>
+          <p>Club Size</p>
           <div class='category_list'>
             {this.renderClickableBox("10-20")}
             {this.renderClickableBox("20-50")}
@@ -88,6 +89,13 @@ class ClubButton extends React.Component {
       intro: null,
       tags: null,
     };
+    this.ToClubHomePage = this.ToClubHomePage.bind(this);
+  }
+
+  ToClubHomePage(event) {
+    console.log("Sheldon")
+    history.push('/ClubHome');
+    window.location.reload();
   }
 
   renderClubTags() {
@@ -108,7 +116,7 @@ class ClubButton extends React.Component {
 
   render() {
     return (
-      <div class='club_bt' >
+      <div class='club_bt' onClick={this.ToClubHomePage}>
         <div><img src={this.props.logo} /></div>
 
         <div class='clubinfo'>

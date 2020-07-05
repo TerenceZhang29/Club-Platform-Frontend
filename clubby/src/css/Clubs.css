@@ -52,6 +52,8 @@ h1 {
   display: flex;
   justify-content: space-between;
 
+  cursor: pointer;
+
 
 
 }
@@ -159,6 +161,88 @@ h1 {
   background-color: #f0efef;
 }
 
+.club_name_image_section {
+  display: flex;
+  justify-content: left;
+}
+.club_name_image_section .image {
+  flex: 30%;
+}
 
+.club_name_image_section img{
+  height: 220px;
+  width: 220px;
+  margin: 50px 50px 20px 50px;
+}
 
+.club_name_image_section .sub_bt{
+  display: inline-block;
+  height: auto;
+  text-align: center;
+  font-size: 20px;
+}
+
+.club_name_image_section .title_sub {
+  flex: 60%;
+  margin: 50px 50px 20px 50px;
+  border: 2px black solid;
+  border-radius: 20px;
+}
+
+.club_name_image_section h1 {
+  font-size: 50px;
+}
+
+.club_intro_info_section {
+  display: flex;
+}
+
+.club_intro_info_section .intro {
+  flex: 70%;
+  text-align: left;
+  padding: 20px;
+  background-color: #c4c4c4;
+  border-radius: 15px;
+
+  margin: 0 15px 0 50px;
+}
+
+.club_intro_info_section .intro p{
+  font-size: 20px;
+  text-indent: 50px;
+
+}
+
+.club_intro_info_section .contact {
+  flex: 30%;
+  margin: 0 50px 0 15px;
+  padding: 20px;
+  background-color: #c4c4c4;
+  border-radius: 15px;
+}
+
+.club_events{
+  margin: 20px 50px 30px 50px;
+  padding: 20px;
+  background-color: #c4c4c4;
+  border-radius: 15px;
+
+}
+
+.club_events h2{
+  text-align: left;
+}
+
+.event_tag {
+  display: block;
+  margin: 10px;
+  padding: 20px;
+  background-color: #e5e5e5;
+  border-radius: 10px;
+}
+
+.event_tag_wrapper {
+  overflow-y: scroll;
+  max-height: 200px;
+}
 
