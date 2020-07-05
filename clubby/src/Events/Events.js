@@ -1,11 +1,30 @@
 import React, { Component } from 'react';
 import { Card, ListGroup } from 'react-bootstrap';
+import axios from 'axios';
 import history from './../history';
 import '../css/Events.css'
 
 class Events extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      title: null
+    };
+    this.run_blockly = this.run_blockly.bind(this);
+  }
+
+  run_blockly(event) {
+    console.log("Chuck Norris");
+    axios({
+      method: 'GET',
+      url: '/api/events',
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.warn(error);
+      });
   }
 
   render() {
@@ -26,6 +45,7 @@ class Events extends Component {
       //     </div>
       // </div>
       <div>
+        <button onClick={this.run_blockly}>run blockly</button>
         <h1>Events</h1>
         <div class='filter-list-container'>
           <EventList />
@@ -84,7 +104,7 @@ class EventButton extends React.Component {
   }
 
   cupInfo(event) {
-    console.log("Sheldon")
+    console.log("Sheldon");
     history.push('/cupInfo');
     window.location.reload();
   }
