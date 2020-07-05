@@ -17,14 +17,15 @@ class Events extends Component {
     console.log("Chuck Norris");
     axios({
       method: 'GET',
-      url: '/api/events',
+      url: 'http://localhost:5000/api/events',
     })
       .then(function (response) {
-        console.log(response);
+        console.log(response.data);
       })
       .catch(function (error) {
-        console.warn(error);
+        console.warn("NO");
       });
+
   }
 
   render() {
