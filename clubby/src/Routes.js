@@ -7,6 +7,7 @@ import Events from "./Events/Events";
 import CupInfo from "./Events/CupInfo"
 import Applications from "./Applications/Applications";
 import Home from "./Home/Home";
+import Profile from "./Profile/Profile";
 import history from './history';
 
 export default class Routes extends Component {
@@ -20,6 +21,7 @@ export default class Routes extends Component {
                     <Route path="/Applications" component={Applications} />
                     <Route path="/cupInfo" component={CupInfo} />
                     <Route path="/ClubHome" component={ClubHome} />
+                    <Route path="/Profile" component={Profile} />
                 </Switch>
             </Router>
         )

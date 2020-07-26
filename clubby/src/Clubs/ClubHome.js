@@ -18,7 +18,7 @@ class Club {
 const club = new Club();
 
 club.title = "Cornell Appdev";
-club.image = require('./App+Dev+Logo+-+Red.png');
+club.image = require('../image/App+Dev+Logo+-+Red.png');
 club.intro = "Cornell University’s open source app development project team. \r\n Simply put, we love building apps. Our 50 members take on various roles surrounding product development, beginning with an initial product vision and design, through engineering development, consistent iteration, and ultimately bringing a functional product to market. Our collaboration leads to stunning products that solve real problems for members of the Cornell and greater Ithaca community."
 club.website = "www.appdev.com";
 club.email = "Appdev@cornell.edu";

@@ -1,9 +1,42 @@
 import React, { Component } from 'react';
 import '../css/Clubs.css';
 import history from './../history';
-// import axios from 'axios';
+import axios from 'axios';
 
 class Clubs extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      clubs: []
+    }
+
+    this.getAllClubs = this.getAllClubs.bind(this);
+    this.extractData = this.extractData.bind(this);
+    this.getAllClubs();
+  }
+
+  extractData(response) {
+    var responseData = response.data['data'];
+    for (var i = 0; i < responseData.length; i++) {
+      var localClubs = this.state.clubs;
+      localClubs.push({ title: responseData[i]['name'] });
+      this.setState({ clubs: localClubs })
+      console.log("IN EXTRACTDATA:")
+      console.log(this.state.clubs.length)
+    }
+  }
+
+  getAllClubs() {
+    axios({
+      method: 'GET',
+      url: 'http://127.0.0.1:5000/api/clubs',
+    })
+      .then((response) => this.extractData(response))
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
   render() {
     return (
       <div class="clublistpage">
@@ -11,7 +44,7 @@ class Clubs extends Component {
           <h1>Clubs</h1>
           <div class='filter-list-container'>
             <Filter />
-            <ClubList />
+            <ClubList clubs={this.state.clubs} />
           </div>
         </body>
       </div>
@@ -67,47 +100,16 @@ class Filter extends React.Component {
 }
 
 class ClubList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      clubs: []
-    }
-
-    // this.getAllClubs = this.getAllClubs.bind(this);
-    // this.extractData = this.extractData.bind(this);
-    // this.getAllClubs();
-  };
-
-  // extractData(response) {
-  //   var responseData = response.data['data'];
-  //   for (var i = 0; i < responseData.length; i++) {
-  //     var localClubs = this.state.clubs;
-  //     localClubs.push({ title: responseData[i]['name'] });
-  //     this.setState({ clubs: localClubs })
-  //     console.log("IN EXTRACTDATA:")
-  //     console.log(this.state.clubs.length)
-  //   }
-  // }
-
-  // getAllClubs() {
-  //   axios({
-  //     method: 'GET',
-  //     url: 'http://127.0.0.1:5000/api/clubs',
-  //   })
-  //     .then((response) => this.extrxtData(response))
-  //     .catch(function (error) {
-  //       console.log(error)
-  //     })
-  // }
   render() {
+    var clubComponent = this.props.clubs.map(club =>
+
+      <ClubButton title={club.title} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} />
+
+    );
+
     return (
       <div class="clublist">
-        <ClubButton title={"Cornell Appdev"} logo={require('./App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} />
-        <ClubButton title={"Cornell Cup Robotics"} logo={require('./App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science", "mechanics"]} />
-        <ClubButton title={"Cornell Chinese Drama Society"} logo={require('./App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} />
-        <ClubButton title={"Cornell Appdev"} logo={require('./App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} />
-        <ClubButton title={"Cornell Appdev"} logo={require('./App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} />
-
+        {clubComponent}
       </div>
     );
   }
