@@ -6,8 +6,8 @@ import { withRouter } from 'react-router-dom';
 const Navigation = (props) => {
     console.log(props);
     return (
-        <Navbar bg="primary" variant="dark">
-            {/* <Navbar.Brand href="#home">React Button</Navbar.Brand> */}
+        <Navbar bg="primary" variant="light">
+            <Navbar.Brand class="logo" href="/"><img src={require("../Clubby_Logo.png")} /></Navbar.Brand>
             {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">

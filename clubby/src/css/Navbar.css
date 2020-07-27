@@ -3,3 +3,10 @@
     margin-top: 10px;
     z-index: 10;
 }
+ .bg-primary {
+     background-color: white;
+ }
+
+.nav-link {
+   padding-top: 3%;
+}

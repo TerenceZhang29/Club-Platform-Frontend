@@ -24,10 +24,10 @@ img {
 
 .picDisplay {
     background-color: #E56959;
-    position: relative;
+    /* position: relative; */
     position: absolute;
     width: 1440px;
-    height: 593px;
+    height: 600px;
     left: 0px;
     top: 120px;
 }
@@ -41,7 +41,7 @@ img {
     height: 569px;
     margin-right: 10px;
     background: #E56959;
-    border-radius: 10px;
+    border-radius: 70px;
     counter-increment: gallery-cell;
     padding: 30px;
     position: relative;
