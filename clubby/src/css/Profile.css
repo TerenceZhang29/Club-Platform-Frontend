@@ -43,3 +43,27 @@ body {
   margin: 10px;
   font-size: 35px;
 }
+
+.switch_btn, .switch_btn_active{
+  text-align: left;
+  font-size: 15px; 
+  margin: 5px 10px 5px 10px;
+  padding: 5px; 
+  display: block;
+
+  
+}
+
+.switch_btn span{
+  background-color: #707070a4; 
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.switch_btn_active span{
+  background-color: #9b9b9bb9; 
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
