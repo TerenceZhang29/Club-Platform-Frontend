@@ -41,8 +41,34 @@ class SubscribedClubs extends Component {
       <div class="subscribedPane">
         <text>Most interested Clubs</text>
         <div class="club_bg">
-          <img src={require("./club_logo2.png")}></img>
+          <MyClub title={"Cornell Appdev"} logo={require("./club_logo2.png")} />
+          {/* <img src={require("./club_logo2.png")}></img> */}
         </div>
+      </div>
+    )
+  }
+}
+
+class MyClub extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: null,
+      logo: null,
+    }
+    this.ToClubHomePage = this.ToClubHomePage.bind(this);
+  }
+
+  ToClubHomePage(event) {
+    console.log("Sheldon")
+    history.push('../Clubs/ClubHome');/* need implement */
+    window.location.reload();
+  }
+
+  render() {
+    return (
+      <div class='club_logo' onClick={this.ToClubHomePage}>
+        <div><img title={this.props.title} src={this.props.logo} /></div>
       </div>
     )
   }

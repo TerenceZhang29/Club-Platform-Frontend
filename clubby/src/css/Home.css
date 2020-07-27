@@ -24,7 +24,6 @@ img {
 
 .picDisplay {
     background-color: #E56959;
-    /* position: relative; */
     position: absolute;
     width: 1440px;
     height: 600px;
@@ -45,7 +44,10 @@ img {
     counter-increment: gallery-cell;
     padding: 30px;
     position: relative;
-    /* opacity: 0.9; */
+    opacity: 0.7;
+}
+.gallery-cell.is-selected {
+    opacity: 1;
 }
 .gallery-cell:before {
     display: block;
@@ -55,6 +57,7 @@ img {
     font-size: 80px;
     border-radius: 10px;
     color: white;
+    
   }
 
 .subscribedPane {
@@ -69,7 +72,7 @@ img {
     height: 29px;
     left: 39px;
     top: 737px;
-    font-family: "San Francisco";
+    font-family: "SF Pro Rounded";
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
@@ -95,4 +98,8 @@ img {
     top: 14px;
     opacity: 0.7;
     border-radius: 20px;
+}
+
+.club_logo {
+    cursor: pointer;
 }
