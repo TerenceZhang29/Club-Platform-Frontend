@@ -253,3 +253,15 @@ h1 {
   overflow-y: scroll;
   max-height: 200px;
 }
+
+.app_position {
+  display: flex;
+  justify-content: space-between;
+}
+.app_position p {
+  font-size: 18px;
+  margin: 5px;
+}
+.position_wrapper{
+
+}
