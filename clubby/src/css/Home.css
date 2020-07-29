@@ -1,40 +1,39 @@
+
 * { box-sizing: border-box; }
 .Home {
-    height:1024px;
-    width:1440px;
-    padding: 0px 0;
-    margin: -20px 0;
-    text-align: center;  
-  }
+    height:100%;
+    width:100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background-color: #fff;
+}
 ul,li,ol {
     list-style: none;
 }
 img {
     border:none;
 }
-  
-.Home h1 {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
-}
-  
-.Home .container {
+
+.home-page-container {
     background-image: #fff;
 }
 
-.picDisplay {
+.pic-display {
     background-color: #E56959;
-    position: absolute;
-    width: 1440px;
-    height: 600px;
-    left: 0px;
-    top: 120px;
+    position: relative;
+    width: 100%;
+    height: 60%;
+    margin-bottom: 3%;
 }
 
 .picUL {
     transition: all 0.5s;
 }
-
+.gallery {
+    width: 100%;
+    height: 100%;
+}
 .gallery-cell {
     width: 66%;
     height: 569px;
@@ -57,21 +56,22 @@ img {
     font-size: 80px;
     border-radius: 10px;
     color: white;
-    
   }
 
-.subscribedPane {
+.subscribed-pane {
+    position: relative;
+    height: 100%;
     background-color: #ffffff;
     margin: -20px 0; 
+    text-align: left;
+    padding-bottom: 5%;
 }
 
-
-.container text {
-    position: absolute;
+.subscribed-pane text {
+    position: relative;
     width: 220px;
     height: 29px;
-    left: 39px;
-    top: 737px;
+    padding-left: 3%;
     font-family: "SF Pro Rounded";
     font-style: normal;
     font-weight: normal;
@@ -80,26 +80,38 @@ img {
     color: #000000;
 }
 
-.club_bg {
-    position: absolute;
+.club-list {
+    display: flex;
+    position: relative;
+    margin-top: 2%;
+    width: 100%;
+}
+.club-bg {
+    /* flex: 1 188px; */
     width: 188px;
     height: 188px;
-    left: 39px;
-    top: 789px;
     background: #4F69D0;
-    border-radius: 30px;    
+    border-radius: 20px;
+    margin: 0 2%;
+    text-align: center;
+    /* vertical-align: middle; */
 }
-.club_bg img {
-    /* appdev */
-    position: absolute;
-    width: 160px;
-    height: 160px;
-    left: 14px;
-    top: 14px;
-    opacity: 0.7;
+.club-logo {
+    text-align: center;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
     border-radius: 20px;
 }
 
-.club_logo {
+.club-logo img {
+    width: 160px;
+    height: 160px;
+    margin-top: 7.5%;
+    border-radius: 20px;
+}
+.club-logo {
     cursor: pointer;
 }
