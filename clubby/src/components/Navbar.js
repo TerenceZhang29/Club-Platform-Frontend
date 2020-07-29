@@ -14,8 +14,8 @@ const Navigation = (props) => {
                 <li><Nav.Link id="clubs-page" href="/Clubs">&nbsp;&nbsp;Clubs&nbsp;&nbsp;</Nav.Link></li>
                 <li><Nav.Link id="events-page" href="/Events">&nbsp;&nbsp;Events&nbsp;&nbsp;</Nav.Link></li>
                 <li><Nav.Link id="applications-page" href="/Applications">Applications</Nav.Link></li>
-                <li><input type="text" class="search-input" placeholder="Search" /></li>
-                <li><img id="dropdown-icon" src={require("../menu-bar.png")} />
+                <li id="search-area"><input type="text" class="search-input" placeholder="  Search" /></li>
+                <li id="dropdown-area"><img id="dropdown-icon" src={require("../menu-bar.png")} />
                 </li>
             </ul>
         </Navbar>
