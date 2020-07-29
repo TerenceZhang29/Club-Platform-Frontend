@@ -45,33 +45,33 @@ class Filter extends React.Component {
     );
   }
 }
-  
+
 class EventList extends React.Component {
   render() {
     return (
       <div class="eventlist">
         <ListGroup>
-        <ListGroup.Item>
-          <EventButton title={"Cornell Appdev"} logo={require('./hack.png')} intro={"Cornell Univeristy's open source app development project team"} />
-        </ListGroup.Item>
-        <ListGroup.Item>
-          <EventButton title={"Cornell Appdev"} logo={require('./hack.png')} intro={"Cornell Univeristy's open source app development project team"} />
-        </ListGroup.Item>
-        <ListGroup.Item>
-          <EventButton title={"Cornell Appdev"} logo={require('./hack.png')} intro={"Cornell Univeristy's open source app development project team"} />
-        </ListGroup.Item>
-        <ListGroup.Item>
-          <EventButton title={"Cornell Appdev"} logo={require('./hack.png')} intro={"Cornell Univeristy's open source app development project team"} />
-        </ListGroup.Item>
-        <ListGroup.Item>
-          <EventButton title={"Cornell Appdev"} logo={require('./hack.png')} intro={"Cornell Univeristy's open source app development project team"} />
-        </ListGroup.Item>
+          <ListGroup.Item>
+            <EventButton title={"Cornell Appdev"} logo={require('./hack.png')} intro={"Cornell Univeristy's open source app development project team"} />
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <EventButton title={"Cornell Appdev"} logo={require('./hack.png')} intro={"Cornell Univeristy's open source app development project team"} />
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <EventButton title={"Cornell Appdev"} logo={require('./hack.png')} intro={"Cornell Univeristy's open source app development project team"} />
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <EventButton title={"Cornell Appdev"} logo={require('./hack.png')} intro={"Cornell Univeristy's open source app development project team"} />
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <EventButton title={"Cornell Appdev"} logo={require('./hack.png')} intro={"Cornell Univeristy's open source app development project team"} />
+          </ListGroup.Item>
         </ListGroup>
       </div>
     );
   }
 }
-  
+
 class EventButton extends React.Component {
   constructor(props) {
     super(props)
@@ -88,14 +88,14 @@ class EventButton extends React.Component {
     history.push('/cupInfo');
     window.location.reload();
   }
-  
+
   render() {
     return (
       <div class='event_item' >
-      <img src={this.props.logo} onClick={this.cupInfo}/>
-      <h3>{this.props.title}</h3>
-      <p>{this.props.intro}</p>
-      </div >
+        <img src={this.props.logo} onClick={this.cupInfo} />
+        <h3>{this.props.title}</h3>
+        <p>{this.props.intro}</p>
+      </div>
     );
   }
 }
