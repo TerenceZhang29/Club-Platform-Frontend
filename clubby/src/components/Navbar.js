@@ -8,24 +8,15 @@ const Navigation = (props) => {
     return (
         <Navbar bg="primary" variant="light" expand="lg">
             <Navbar.Brand class="logo" href="/"><img class="logo" src={require("../Clubby_Logo_cropped.JPG")} /></Navbar.Brand>
-            <nav>
-                <ul class="nav-container">
-                    <li><ul class="tag-container">
-                        <li><Nav.Link id="home-page" href="/">&nbsp;&nbsp;Home&nbsp;&nbsp;</Nav.Link></li>
-                        <li><Nav.Link id="clubs-page" href="/Clubs">&nbsp;&nbsp;Clubs&nbsp;&nbsp;</Nav.Link></li>
-                        <li><Nav.Link id="events-page" href="/Events">&nbsp;&nbsp;Events&nbsp;&nbsp;</Nav.Link></li>
-                        <li><Nav.Link id="applications-page" href="/Applications">Applications</Nav.Link></li>
-                    </ul></li>
-                    <li><div class="search-container">
-                        <span class="search">
-                            <input type="text" class="search-input" placeholder="  Search" />
-                        </span>
-                    </div></li>
-                    <li><div class="hover-menu-container">
-                        <img id="dropdown-icon" src={require("../menu-bar.png")} />
-                    </div></li>
-                </ul>
-            </nav>
+            <ul class="nav-container">
+                <li><Nav.Link id="home-page" href="/">&nbsp;&nbsp;Home&nbsp;&nbsp;</Nav.Link></li>
+                <li><Nav.Link id="clubs-page" href="/Clubs">&nbsp;&nbsp;Clubs&nbsp;&nbsp;</Nav.Link></li>
+                <li><Nav.Link id="events-page" href="/Events">&nbsp;&nbsp;Events&nbsp;&nbsp;</Nav.Link></li>
+                <li><Nav.Link id="applications-page" href="/Applications">Applications</Nav.Link></li>
+                <li><input type="text" class="search-input" placeholder="Search" /></li>
+                <li><img id="dropdown-icon" src={require("../menu-bar.png")} />
+                </li>
+            </ul>
         </Navbar>
     )
 }

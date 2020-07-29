@@ -53,53 +53,27 @@ Nav a {
     background-color: #111;
   }
 
-  .search-input {
-      background-color: #F1F3F4;
-      float: left;
-      width: 338px;
-      height: 40px;
-      border-color: transparent;
-      border-radius: 100px;
-      margin: 0;
-  }
-
-  #dropdown-icon{
-      height: 14px;
-      width: 22px;
-      cursor: pointer;
-      border: transparent;
-  }
-
-  .dropdown-toggle {
-      border-color: transparent;
-      background-color: transparent;
-  }
-
-
-
-
-
-
-
-
-
-
-  .nav-container, .tag-container{  
+  .nav-container{  
     display: flex;
     flex-direction: row;  
   }
 
-  .search-container {
-      padding-top: 10px;
-      margin-left: 50px;
-  }
-  .search {  
+  .search-input {  
+    display: block;
+    margin-left: 50px;
     flex: 1;  
+    background-color: #F1F3F4;
+    float: left;
+    width: 338px;
+    height: 40px;
+    border-color: transparent;
+    border-radius: 100px;
+    margin: 0;
   }
   .nav-container > li {  
     flex: 1;  
   }
-  .hover-menu-container img{
+  .nav-container img{
     margin-top: 20px;
     margin-left: 70px;
     height: 14px;
