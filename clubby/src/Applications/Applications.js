@@ -6,14 +6,9 @@ import history from './../history';
 class Applications extends Component {
     render() {
         return (
-            <div class="clublistpage">
-                <body>
-                    <h1>Application</h1>
-                    <div class='filter-list-container'>
-                        <Filter />
-                        <ClubList />
-                    </div>
-                </body>
+            <div class='clubs-page'>
+                <ClubList />
+                <Filter />
             </div>
         );
     }
@@ -31,7 +26,7 @@ class Filter extends React.Component {
 
     render() {
         return (
-            <div class="filter">
+            <div class="filter-container">
                 <h2>Filter</h2>
                 <div class='subscribed_clubs_filter'>
                     {this.renderClickableBox('Subscribed Clubs')}
@@ -66,9 +61,9 @@ class Filter extends React.Component {
     }
 }
 
-const pos1 = ["IOS Team", "ends on October 2020"]
-const pos2 = ["Android Team", "ends on October 2020"]
-const pos3 = ["Design Team", "ends on October 2020"]
+const pos1 = ["IOS Team", "ends October 2020"]
+const pos2 = ["Android Team", "ends October 2020"]
+const pos3 = ["Design Team", "ends October 2020"]
 
 class ClubList extends React.Component {
     constructor(props) {
@@ -76,41 +71,16 @@ class ClubList extends React.Component {
         this.state = {
             clubs: []
         }
-
-        // this.getAllClubs = this.getAllClubs.bind(this);
-        // this.extractData = this.extractData.bind(this);
-        // this.getAllClubs();
     };
 
-    // extractData(response) {
-    //   var responseData = response.data['data'];
-    //   for (var i = 0; i < responseData.length; i++) {
-    //     var localClubs = this.state.clubs;
-    //     localClubs.push({ title: responseData[i]['name'] });
-    //     this.setState({ clubs: localClubs })
-    //     console.log("IN EXTRACTDATA:")
-    //     console.log(this.state.clubs.length)
-    //   }
-    // }
-
-    // getAllClubs() {
-    //   axios({
-    //     method: 'GET',
-    //     url: 'http://127.0.0.1:5000/api/clubs',
-    //   })
-    //     .then((response) => this.extrxtData(response))
-    //     .catch(function (error) {
-    //       console.log(error)
-    //     })
-    // }
     render() {
         return (
-            <div class="clublist">
-                <ApplicationButton title={"Cornell Appdev"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} position={[pos1, pos2, pos3]} />
-                <ApplicationButton title={"Cornell Cup Robotics"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science", "mechanics"]} position={[pos1, pos2, pos3]} />
-                <ApplicationButton title={"Cornell Chinese Drama Society"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} position={[pos1, pos2, pos3]} />
-                <ApplicationButton title={"Cornell Appdev"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} position={[pos1, pos2, pos3]} />
-                <ApplicationButton title={"Cornell Appdev"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} position={[pos1, pos2, pos3]} />
+            <div class="club-list-container">
+                <ApplicationButton title={"Cornell Appdev"} logo={require('../image/club_logo2.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} applied={true} />
+                <ApplicationButton title={"Cornell Cup Robotics"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} applied={false} />
+                <ApplicationButton title={"Cornell Chinese Drama Society"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} applied={false} />
+                <ApplicationButton title={"Cornell Appdev"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} applied={false} />
+                <ApplicationButton title={"Cornell Appdev"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} applied={false} />
 
             </div>
         );
@@ -126,6 +96,7 @@ class ApplicationButton extends React.Component {
             intro: null,
             tags: null,
             position: null,
+            applied: null,
         };
         this.ToClubHomePage = this.ToClubHomePage.bind(this);
     }
@@ -136,18 +107,12 @@ class ApplicationButton extends React.Component {
         window.location.reload();
     }
 
-    renderClubTags() {
-
-        var tags = []
-
-        for (var i = 0; i < this.props.tags.length; i++) {
-            tags.push(<div class='club_tag'>{this.props.tags[i]}</div>)
-        }
+    renderApplyBtn() {
+        let text = (this.props.applied ? "Applied" : "Apply")
+        let style = (this.props.applied ? "apply-btn" : "apply-btn __not-applied")
 
         return (
-            <div class='tag_wrapper'>
-                {tags}
-            </div>
+            <div class={style}>{text}</div>
         )
     }
 
@@ -157,7 +122,7 @@ class ApplicationButton extends React.Component {
 
         for (var i = 0; i < this.props.position.length; i++) {
             position.push(
-                <div class='app_position'>
+                <div class='app-position'>
                     <p>{this.props.position[i][0]}</p>
                     <p>{this.props.position[i][1]}</p>
                 </div>
@@ -165,7 +130,7 @@ class ApplicationButton extends React.Component {
         }
 
         return (
-            <div class='position_wrapper'>
+            <div class='position-wrapper'>
                 {position}
             </div>
         )
@@ -174,18 +139,27 @@ class ApplicationButton extends React.Component {
 
     render() {
         return (
-            <div class='club_bt' onClick={this.ToClubHomePage}>
-                <div><img src={this.props.logo} /></div>
+            <div class='club-btn'>
 
-                <div class='clubinfo'>
-                    <div class='title'>{this.props.title}</div>
-                    <div>{this.renderClubTags()}</div>
-                    <div>{this.props.intro}</div>
-                    <div>{this.renderAppPostion()}</div>
+                <div class='club-info-section'>
+                    <div class='image-wrapper'><img src={this.props.logo} /></div>
+
+                    <div class='text-wrapper'>
+                        <h3>{this.props.title}</h3>
+                        <p>{this.props.intro}</p>
+                        <div class='industry-btn'>{this.props.tags}</div>
+                        <div class='more-btn'>
+                            <div class='dot' />
+                            <div class='dot' />
+                            <div class='dot' />
+                        </div>
+                    </div>
                 </div>
 
-                <div class="sub_bt">Apply</div>
-
+                <div class='application-info-section'>
+                    {this.renderAppPostion()}
+                    {this.renderApplyBtn()}
+                </div>
             </div >
         );
     }
