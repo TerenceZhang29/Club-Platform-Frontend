@@ -44,17 +44,18 @@
 .club-btn .club-info-section {
   
   display: flex; 
-  flex: 60%; 
+  flex: 6 6 60%; 
   
   background-color: #F1F3F4; 
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
 
+
 }
 
 .club-info-section .image-wrapper{
 
-  flex: 35%;
+  flex: 33%;
   
   border-radius: 1em;
   background-color: #4F69D0;
@@ -75,7 +76,7 @@
 }
 
 .club-info-section .text-wrapper{
-  flex: 65%;
+  flex: 66%;
   padding: 0.5em;
   
   text-align: left;
@@ -100,7 +101,7 @@
 }
 
 .more-btn{
-  display: inline-block;
+  /* display: inline-block; */
   width: 2em;
   height: 2em;
   background-color: #4F69D0;
@@ -109,8 +110,12 @@
   text-align: center;
   margin-left: 5.65em;
 
-  position: relative;
-  top: 0.6em;
+  /* position: relative;
+  top: 0.6em; */
+
+  float:right;
+  margin-top: 0.9em;
+  margin-right: 1em;
   
 }
 
@@ -128,7 +133,7 @@
 
 .club-btn .application-info-section {
   
-  flex: 40%;
+  flex: 4 4 40%;
 
   background-color: #fff;
   border-top-right-radius: 1em;
@@ -150,9 +155,11 @@
   border-radius: 1em;
   
   padding: 0.15em 0.05em 0.1em;
+  
+  float: right;
   margin-top: 3em;
-  margin-left: 18.15em;
   margin-right: 1.7em;
+  margin-bottom: 1em;
 
 }
 
@@ -167,70 +174,68 @@
 .app-position {
   display: flex;
   justify-content: space-between;
+  margin: 0.1em;
 }
 
   .app-position p {
     margin: 0;
+    display: inline-block;
   }
 
+.filter-container h2 {
+  color: #4F69D0;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: left;
 
-.filter div{
-  background-color: #e2e1e1;
+  margin: 0.5em;
+
+}
+
+.filter-container h3 {
+  font-weight: normal;
+  text-align: left;
+
+  font-size: 1em;
+  margin:0;
+
+}
+.filter-container .filter-section{
+  background-color: #F1F3F4;
   display: block;
-  border-radius: 10px;
-  padding: 5px;
-  margin: 10px;
+  border-radius: 0.5em;
+  
+  padding: 0.5em 1em;
+  margin: 1em;
+  
   text-align: center;
 }
 
-.filter p{
-  margin:5px;
-  font-size: 20px;
-  text-align: left;
-}
+.text-with-check-box .check-circle{
+  height: 0.8em;
+  width: 0.8em;
 
+  border: 0.1em solid #4F69D0;
+  border-radius: 50%;
 
-
-.filter_check_box a {
   display: inline-block;
-  height: 20px;
-  width: 20px;
-  background-color: #fff;
-  border: 2px solid #000;
-  margin: 0 5px -4px 5px;
+  margin: 0 0.6em 0;
 }
 
-.filter_check_box p{
+.text-with-check-box p {
+  margin: 0.8em 0;
+  padding: 0;
   text-align: left;
-  font-size: 18px;
-  margin: 2px;
+  white-space: nowrap;
 }
 
-.filter .category_list {
-  background-color: #f0efef;
-  height: 200px;
-  overflow-y: scroll;
-}
+.filter-section input{
+  width: 100%;
+  font-size: 20px;
+  height: 2em;
 
-.category_list .filter_check_box {
-  background-color: #f0efef;
-}
+  margin: 0.5em 0;
 
-
-.event_tag {
-  display: block;
-  margin: 10px;
-  padding: 20px;
-  background-color: #e5e5e5;
-  border-radius: 10px;
-}
-
-.event_tag_wrapper {
-  overflow-y: scroll;
-  max-height: 200px;
-}
-
-.app_position {
-  display: flex;
-  justify-content: space-between;
+  border-radius: 2.5em;
+  border-style: none;
 }

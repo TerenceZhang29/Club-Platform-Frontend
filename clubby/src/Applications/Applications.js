@@ -18,8 +18,8 @@ class Filter extends React.Component {
 
     renderClickableBox(text) {
         return (
-            <div class="filter_check_box">
-                <p><a href=""></a>{text}</p>
+            <div class="text-with-check-box">
+                <p><div class='check-circle' />{text}</p>
             </div>
         );
     }
@@ -27,34 +27,33 @@ class Filter extends React.Component {
     render() {
         return (
             <div class="filter-container">
-                <h2>Filter</h2>
-                <div class='subscribed_clubs_filter'>
-                    {this.renderClickableBox('Subscribed Clubs')}
+                <h2>Filters</h2>
+                <div class='filter-section'>
+                    {this.renderClickableBox('Favorite Clubs')}
                 </div>
-                <div class='search_bar_filter'>
-                    <p>Search</p>
-                    <textarea></textarea>
+                <div class='filter-section'>
+                    <h3>Search</h3>
+                    <input type='text' />
                 </div>
-                <div class='category_search_filter'>
-                    <p>Category</p>
-                    <textarea></textarea>
-                    <div class='category_list'>
-                        {this.renderClickableBox("Engineering")}
-                        {this.renderClickableBox("Business")}
-                        {this.renderClickableBox("Sport")}
-                        {this.renderClickableBox("Pre-law")}
-                        {this.renderClickableBox("Art")}
-                    </div>
+                <div class='filter-section'>
+                    <h3>Category</h3>
+                    <input type='text' />
+
+                    {this.renderClickableBox("Engineering")}
+                    {this.renderClickableBox("Business")}
+                    {this.renderClickableBox("Sport")}
+                    {this.renderClickableBox("Pre-law")}
+                    {this.renderClickableBox("Art")}
 
                 </div>
-                <div class='size_filter'>
-                    <p>Club Size</p>
-                    <div class='category_list'>
-                        {this.renderClickableBox("10-20")}
-                        {this.renderClickableBox("20-50")}
-                        {this.renderClickableBox("50-100")}
-                        {this.renderClickableBox("100-200")}
-                    </div>
+                <div class='filter-section'>
+                    <h3>Registered</h3>
+
+                    {this.renderClickableBox("10-20")}
+                    {this.renderClickableBox("20-50")}
+                    {this.renderClickableBox("50-100")}
+                    {this.renderClickableBox("100-200")}
+
                 </div>
             </div>
         );
