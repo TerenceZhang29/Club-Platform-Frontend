@@ -194,7 +194,15 @@ h1 {
   left: 160px;
 }
 
-.regi-buttom {
+.register-buttom img{
+  position: absolute;
+  width: 76px;
+  height: 28px;
+  left: -5px;
+  top: -5px;
+}
+
+/* .regi-buttom {
   border: hidden;
   border-radius: 10px;
   height: 25px;
@@ -207,7 +215,7 @@ h1 {
   position: absolute;
   top: 4px;
   left: 5px;
-}
+} */
 
 .heart-buttom img{
   position: absolute;

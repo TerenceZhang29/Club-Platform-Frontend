@@ -153,24 +153,33 @@ class RegisterButtom extends React.Component {
       count: 0,
       bgColor: '#BCB5F7'
     };
-    this.handleclick = this.handleclick.bind(this);
+    // this.handleclick = this.handleclick.bind(this);
   }
 
-  handleclick() {
-    if (this.state.count) {
-      this.setState(this.state = ({ title: "Register", count: 0, bgColor: '#BCB5F7' }));
-    }
-    else {
-      this.setState(this.state = ({ title: "Registered", count: 1, bgColor: '#776DC8' }));
-    }
+  state = {
+    open: true
   }
+  toggleImage = () => {
+    this.setState(state => ({ open: !state.open }))
+  }
+  getImageName = () => this.state.open ? 'Registered_buttom' : 'Register_buttom'
+
+  // handleclick() {
+  //   if (this.state.count) {
+  //     this.setState(this.state = ({ title: "Register", count: 0, bgColor: '#BCB5F7' }));
+  //   }
+  //   else {
+  //     this.setState(this.state = ({ title: "Registered", count: 1, bgColor: '#776DC8' }));
+  //   }
+  // }
 
   render() {
+    const imageName = this.getImageName();
     return (
       // **** clickable button with changing text and color ****
-      <button onClick={this.handleclick} style={{ backgroundColor: this.state.bgColor, borderRadius: 10, border: "hidden" }}>
-        {this.state.title}
-      </button>
+      // <button onClick={this.handleclick} style={{ backgroundColor: this.state.bgColor, borderRadius: 10, border: "hidden" }}>
+      //   {this.state.title}
+      // </button>
 
       // **** changing color only ****
       // <div className="regi-buttom"
@@ -178,6 +187,8 @@ class RegisterButtom extends React.Component {
       //   onClick={this.handleclick}
       // >{this.props.title}
       // </div>
+
+      <img src={require('./' + imageName + '.png')} onClick={this.toggleImage} />
     );
   }
 }
