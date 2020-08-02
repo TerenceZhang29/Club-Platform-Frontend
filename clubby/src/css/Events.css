@@ -8,23 +8,61 @@ h1 {
   font-size: 50px;
 }
 
-.filter-list-container {
+.filter-list-container  {
   display: flex;
 }
 
 .filter {
   flex: 1 200px;
-  background-color: #c4c4c4;
+  background-color: #FFFFFF;
   border-radius: 15px;
   margin: 0 20px 0 20px;
-
-  
 }
 
-.eventlist {
+.filter div{
+  background-color: #e2e1e1;
+  display: block;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+}
+
+.filter p{
+  margin:5px;
+  font-size: 20px;
+  text-align: left;
+}
+
+.filter-check-box a {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border: 2px solid #000;
+  margin: 0 5px -4px 5px;
+}
+
+.filter-check-box p{
+  text-align: left;
+  font-size: 18px;
+  margin: 2px;
+}
+
+.filter .category-list, .filter .registered-list {
+  background-color: #f0efef;
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.category-list .filter-check-box, .registered-list .filter-check-box {
+  background-color: #f0efef;
+}
+
+/* .eventlist {
   
   flex: 3 600px;
-  height: 550px;
+  height: 800px;
    
   background-color: #E4CACA;
   border-radius: 15px;
@@ -32,67 +70,149 @@ h1 {
   padding: 10px 5px 10px 5px;
   overflow-y: scroll;
 
+} */
+
+.event-container {
+  width: 1100px;
+  height: 904px;
+
+  background-color: #E56959;
+  border-radius: 0px 50px 0px 0px;
+  margin: 0 0px 0 0px;
+  padding: 10px 5px 10px 5px;
+  overflow-y: hidden;
+  overflow-y: scroll;
+  
+  
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
 }
 
-.event_item {
-  background-color: #C4C4C4;
-  height: 120px;
-  border-radius: 10px;
- 
-  border: black;
-  border-style: solid;
-  border-width: 10px;
-  
-  margin: 20px 10px 10px 10px;
-  padding: 10px 10px 10px 10px;
+/* Hide scrollbar for Chrome, Safari and Opera */
+.event-container::-webkit-scrollbar {
+  display: none;
+}
 
+/* Hide scrollbar for IE, Edge and Firefox */
+.event-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 
+.event-item {
   display: grid;
   grid-template-columns: repeat(5,1fr);
   grid-template-rows: repeat(2,1fr);
+}
 
 
+.event-item-1, .event-item-2, .event-item-3, .event-item-4, .event-item-5, .event-item-6 {
+  background-color: #FFFFFF;
+  height: 326px;
+  width: 230px;
+  border-radius: 10px;
+
+  filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.5));
+  
+  margin: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
+
+  grid-column-start: 1;
+}
+.event-item-2 {
+  grid-column-start: 2;
+}
+.event-item-3 {
+  grid-column-start: 3;
+}
+.event-item-4 {
+  grid-column-start: 4;
+}
+.event-item-6 {
+  grid-column-start: 1;
+}
+
+.event_item {
+  position: relative;
 }
 
 .event_item img {
-  height: 120px;
-  width: 120px;
+  height: 230px;
+  width: 200px;
 
-  border: black;
-  border-style: solid;
-  border-width: 5px;
-
-  grid-column-start: 1;
-  grid-column-end: 2;
+  position: absolute;
+  left: 10px;
 }
 
 .event_item h3 {
   padding: 0;
-  margin: 0;
+  margin: 5;
   font-size: 20px;
 
-  border: black;
+  position: absolute;
+  left: 5px;
+  top: 220px;
+  /* border: black;
   border-style: solid;
-  border-width: 5px;
+  border-width: 5px; */
   
-  grid-column-start: 2;
-  grid-column-end: 3;
-
-  grid-row-start: 1;
-  grid-row-end: 1;
 }
 
 .event_item p {
   padding: 0;
   margin: 0;
-  font-size: 20px;
+  font-size: 15px;
 
+  position: absolute;
+  top: 280px;
+/* 
   border: black;
   border-style: solid;
-  border-width: 5px;
+  border-width: 5px; */
   
-  grid-column-start: 2;
-  grid-column-end: 5;
+}
 
-  grid-row-start: 2;
+/* .event_item button {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background-color: #BCB5F7;
+  border: hidden;
+
+  position: absolute;
+  top: 240px;
+  left: 165px;
+} */
+
+
+.register-buttom {
+  height: 25px;
+  width: 65px;
+
+  position: relative;
+  top: 242px;
+  left: 160px;
+}
+
+.regi-buttom {
+  border: hidden;
+  border-radius: 10px;
+  height: 25px;
+  width: 65px;
+
+  position: relative;
+}
+
+.regi-buttom p{
+  position: absolute;
+  top: 4px;
+  left: 5px;
+}
+
+.heart-buttom img{
+  position: absolute;
+  width: 24.07px;
+  height: 22px;
+  left: 200px;
+  top: 18px;
 }

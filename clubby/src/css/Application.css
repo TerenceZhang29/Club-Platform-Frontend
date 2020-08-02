@@ -159,13 +159,13 @@ h1 {
   margin: 2px;
 }
 
-.filter .category_list {
+.filter .category-list {
   background-color: #f0efef;
   height: 200px;
   overflow-y: scroll;
 }
 
-.category_list .filter_check_box {
+.category-list .filter_check_box {
   background-color: #f0efef;
 }
 
