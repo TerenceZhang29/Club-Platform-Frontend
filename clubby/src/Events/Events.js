@@ -10,21 +10,6 @@ class Events extends Component {
 
   render() {
     return (
-      // <div style={{ display: 'flex', justifyContent: 'center', padding: 30 }}>
-      //     <div><h2>Event Page</h2>
-      //         <Card style={{ width: '18rem' }}>
-      //             <ListGroup>
-      //                 <ListGroup.Item>AppDev Info Session</ListGroup.Item>
-      //                 <ListGroup.Item onClick={this.cupInfo}>Cup Robotics Info Session</ListGroup.Item>
-      //                 <ListGroup.Item>Drama Society Audition</ListGroup.Item>
-      //             </ListGroup>
-      //         </Card>
-      //     </div>
-      //     <div class='filter-list-container'>
-      //     <EventList />
-      //     <Filter />
-      //     </div>
-      // </div>
       <div>
         <h1>Events</h1>
         <div class='filter-list-container'>
@@ -36,45 +21,73 @@ class Events extends Component {
   }
 }
 
-class Filter extends React.Component {
-  renderClickableBox(text) {
-    return (
-      <div class="filter-check-box">
-        <p><a href=""></a>{text}</p>
-      </div>
-    );
+class ClickableBox extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      clicked: false,
+      text: null
+    }
+    this.onClicked = this.onClicked.bind(this)
+  }
+
+  onClicked() {
+    if (this.state.clicked) {
+      this.setState({
+        clicked: false
+      })
+    } else {
+      this.setState({
+        clicked: true
+      })
+    }
   }
 
   render() {
+    var circle_class = (this.state.clicked ? 'check-circle __dark' : 'check-circle')
+
     return (
-      <div class="filter">
-        <h2>Filter</h2>
-        <div class='favorite-events-filter'>
-          {this.renderClickableBox('Favorite Events')}
+      <div class="text-with-check-box">
+        <p onClick={this.onClicked}><div class={circle_class} />{this.props.text}</p>
+      </div>
+    );
+  }
+}
+
+class Filter extends React.Component {
+
+
+
+  render() {
+    return (
+      <div class="filter-container">
+        <h2>Filters</h2>
+        <div class='filter-section'>
+          <ClickableBox text={'Favorite Clubs'} />
         </div>
-        <div class='search-bar-filter'>
-          <p>Search</p>
-          <textarea></textarea>
+        <div class='filter-section'>
+          <h3>Search</h3>
+          <input type='text' />
         </div>
-        <div class='category-search-filter'>
-          <p>Category</p>
-          <textarea></textarea>
-          <div class='category-list'>
-            {this.renderClickableBox("Engineering")}
-            {this.renderClickableBox("Business")}
-            {this.renderClickableBox("Sport")}
-            {this.renderClickableBox("Pre-law")}
-            {this.renderClickableBox("Art")}
-          </div>
+        <div class='filter-section'>
+          <h3>Category</h3>
+          <input type='text' />
+
+          <ClickableBox text={'Engineering'} />
+          <ClickableBox text={'Business'} />
+          <ClickableBox text={'Sport'} />
+          <ClickableBox text={'Pre-law'} />
+          <ClickableBox text={'Art'} />
+
         </div>
-        <div class='registered-filter'>
-          <p>Registered</p>
-          <div class='registered-list'>
-            {this.renderClickableBox("10 - 20")}
-            {this.renderClickableBox("20 - 50")}
-            {this.renderClickableBox("50 - 100")}
-            {this.renderClickableBox("100 - 200")}
-          </div>
+        <div class='filter-section'>
+          <h3>Registered</h3>
+
+          <ClickableBox text={'10-20'} />
+          <ClickableBox text={'20-50'} />
+          <ClickableBox text={'50-100'} />
+          <ClickableBox text={'100-200'} />
+
         </div>
       </div>
     );
@@ -211,19 +224,9 @@ class HeartButtom extends React.Component {
   }
   getImageName = () => this.state.open ? 'filled_heart' : 'Heart'
 
-  // handleclick() {
-  //   if (this.state.clicked) {
-  //     this.setState(this.state = ({ logo: require('./Heart.png'), clicked: 0 }));
-  //   }
-  //   else {
-  //     this.setState(this.state = ({ logo: require('./filled_heart.png'), clicked: 1 }));
-  //   }
-  // }
-
   render() {
     const imageName = this.getImageName();
     return (
-      // <img src={this.props.logo} onClick={this.handleclick} />
       <img src={require('./' + imageName + '.png')} onClick={this.toggleImage} />
     );
   }

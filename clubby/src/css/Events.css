@@ -8,72 +8,105 @@ h1 {
   font-size: 50px;
 }
 
-.filter-list-container  {
+.filter-container { 
+  
+  flex: 17%; /* width */
+  
+  background-color: #fff; 
+  
+  margin: 0; 
+  
+  padding: 0; 
+}
+
+.__not-applied{
+  background-color: #BCB5F7;
+}
+
+.position-wrapper{
+  margin: 2.35em 1.7em 0;
+}
+
+.app-position {
   display: flex;
+  justify-content: space-between;
+  margin: 0.1em;
 }
 
-.filter {
-  flex: 1 200px;
-  background-color: #FFFFFF;
-  border-radius: 15px;
-  margin: 0 20px 0 20px;
+  .app-position p {
+    margin: 0;
+    display: inline-block;
+  }
+
+.filter-container h2 {
+  color: #4F69D0;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: left;
+
+  margin: 0.5em;
+
 }
 
-.filter div{
-  background-color: #e2e1e1;
+.filter-container h3 {
+  font-weight: normal;
+  text-align: left;
+
+  font-size: 1em;
+  margin:0;
+
+}
+.filter-container .filter-section{
+  background-color: #F1F3F4;
   display: block;
-  border-radius: 10px;
-  padding: 5px;
-  margin: 10px;
+  border-radius: 0.5em;
+  
+  padding: 0.5em 1em;
+  margin: 1em;
+  
   text-align: center;
 }
 
-.filter p{
-  margin:5px;
-  font-size: 20px;
-  text-align: left;
-}
+.text-with-check-box .check-circle{
+  height: 0.8em;
+  width: 0.8em;
 
-.filter-check-box a {
+  border: 0.1em solid #4F69D0;
+  border-radius: 50%;
+
   display: inline-block;
-  height: 20px;
-  width: 20px;
-  background-color: #fff;
-  border: 2px solid #000;
-  margin: 0 5px -4px 5px;
+  margin: 0 0.6em 0;
 }
 
-.filter-check-box p{
+.__dark{
+  background-color:#4F69D0;
+}
+
+.text-with-check-box p {
+  margin: 0.8em 0;
+  padding: 0;
   text-align: left;
-  font-size: 18px;
-  margin: 2px;
+  white-space: nowrap;
 }
 
-.filter .category-list, .filter .registered-list {
-  background-color: #f0efef;
-  height: 200px;
-  overflow-y: scroll;
+.text-with-check-box p:hover{
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-.category-list .filter-check-box, .registered-list .filter-check-box {
-  background-color: #f0efef;
+.filter-section input{
+  width: 100%;
+  font-size: 20px;
+  height: 2em;
+
+  margin: 0.5em 0;
+
+  border-radius: 2.5em;
+  border-style: none;
 }
-
-/* .eventlist {
-  
-  flex: 3 600px;
-  height: 800px;
-   
-  background-color: #E4CACA;
-  border-radius: 15px;
-  margin: 0 30px 0 20px;
-  padding: 10px 5px 10px 5px;
-  overflow-y: scroll;
-
-} */
 
 .event-container {
-  width: 1100px;
+  width: 83%;
   height: 904px;
 
   background-color: #E56959;
@@ -172,18 +205,6 @@ h1 {
   border-width: 5px; */
   
 }
-
-/* .event_item button {
-  padding: 6px 10px;
-  border-radius: 8px;
-  background-color: #BCB5F7;
-  border: hidden;
-
-  position: absolute;
-  top: 240px;
-  left: 165px;
-} */
-
 
 .register-buttom {
   height: 25px;
