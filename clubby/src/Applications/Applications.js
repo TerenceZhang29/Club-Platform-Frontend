@@ -14,22 +14,49 @@ class Applications extends Component {
     }
 }
 
-class Filter extends React.Component {
+class ClickableBox extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            clicked: false,
+            text: null
+        }
+        this.onClicked = this.onClicked.bind(this)
+    }
 
-    renderClickableBox(text) {
+    onClicked() {
+        if (this.state.clicked) {
+            this.setState({
+                clicked: false
+            })
+        } else {
+            this.setState({
+                clicked: true
+            })
+        }
+    }
+
+    render() {
+        var circle_class = (this.state.clicked ? 'check-circle __dark' : 'check-circle')
+
         return (
             <div class="text-with-check-box">
-                <p><div class='check-circle' />{text}</p>
+                <p onClick={this.onClicked}><div class={circle_class} />{this.props.text}</p>
             </div>
         );
     }
+}
+
+class Filter extends React.Component {
+
+
 
     render() {
         return (
             <div class="filter-container">
                 <h2>Filters</h2>
                 <div class='filter-section'>
-                    {this.renderClickableBox('Favorite Clubs')}
+                    <ClickableBox text={'Favorite Clubs'} />
                 </div>
                 <div class='filter-section'>
                     <h3>Search</h3>
@@ -39,20 +66,20 @@ class Filter extends React.Component {
                     <h3>Category</h3>
                     <input type='text' />
 
-                    {this.renderClickableBox("Engineering")}
-                    {this.renderClickableBox("Business")}
-                    {this.renderClickableBox("Sport")}
-                    {this.renderClickableBox("Pre-law")}
-                    {this.renderClickableBox("Art")}
+                    <ClickableBox text={'Engineering'} />
+                    <ClickableBox text={'Business'} />
+                    <ClickableBox text={'Sport'} />
+                    <ClickableBox text={'Pre-law'} />
+                    <ClickableBox text={'Art'} />
 
                 </div>
                 <div class='filter-section'>
                     <h3>Registered</h3>
 
-                    {this.renderClickableBox("10-20")}
-                    {this.renderClickableBox("20-50")}
-                    {this.renderClickableBox("50-100")}
-                    {this.renderClickableBox("100-200")}
+                    <ClickableBox text={'10-20'} />
+                    <ClickableBox text={'20-50'} />
+                    <ClickableBox text={'50-100'} />
+                    <ClickableBox text={'100-200'} />
 
                 </div>
             </div>
