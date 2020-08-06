@@ -115,7 +115,6 @@ class EventList extends React.Component {
 
   render() {
     return (
-
       <div class='event-container'>
         <div class='event-item'>
           <div class={this.state.shadow1 ? '__dark' : 'event-item-1'}>
@@ -149,7 +148,6 @@ class EventList extends React.Component {
             <EventButton onChange={this.changeShadow} title={"BigRedHacks"} logo={require('./hack.png')} intro={"BigRedHacks is the oldest student-run, large-scale hackathon at Cornell University."} />
           </div> */}
         </div>
-
       </div>
     );
   }
@@ -175,7 +173,6 @@ class EventButton extends React.Component {
 
   render() {
     return (
-
       <div class='event-btn' >
         <img src={this.props.logo} onClick={this.cupInfo} />
         <h3>{this.props.title}</h3>
