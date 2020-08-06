@@ -27,8 +27,8 @@ class Events extends Component {
       // </div>
       <div>
 
-
         <div class='events-page'>
+
 
           <EventList />
           <Filter />
