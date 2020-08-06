@@ -26,8 +26,10 @@ class Events extends Component {
       //     </div>
       // </div>
       <div>
-        <h1>Events</h1>
-        <div class='filter-list-container'>
+
+        <div class='events-page'>
+
+
           <EventList />
           <Filter />
         </div>
@@ -49,24 +51,40 @@ class Filter extends React.Component {
 class EventList extends React.Component {
   render() {
     return (
-      <div class="eventlist">
-        <ListGroup>
-          <ListGroup.Item>
-            <EventButton title={"Cornell Appdev"} logo={require('./hack.png')} intro={"Cornell Univeristy's open source app development project team"} />
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <EventButton title={"Cornell Appdev"} logo={require('./hack.png')} intro={"Cornell Univeristy's open source app development project team"} />
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <EventButton title={"Cornell Appdev"} logo={require('./hack.png')} intro={"Cornell Univeristy's open source app development project team"} />
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <EventButton title={"Cornell Appdev"} logo={require('./hack.png')} intro={"Cornell Univeristy's open source app development project team"} />
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <EventButton title={"Cornell Appdev"} logo={require('./hack.png')} intro={"Cornell Univeristy's open source app development project team"} />
-          </ListGroup.Item>
-        </ListGroup>
+
+      <div class='event-container'>
+        <div class='event-item'>
+          <div class={this.state.shadow1 ? '__dark' : 'event-item-1'}>
+            <EventButton onChange={this.changeShadow1} title={"BigRedHacks"} logo={require('./hack.png')} intro={"BigRedHacks is the oldest student-run, large-scale hackathon at Cornell University."} />
+          </div>
+          <div class={this.state.shadow2 ? '__dark' : 'event-item-2'}>
+            <EventButton onChange={this.changeShadow2} title={"BigRedHacks"} logo={require('./hack.png')} intro={"BigRedHacks is the oldest student-run, large-scale hackathon at Cornell University."} />
+          </div>
+          {/* <div class='event-item-3'>
+            <EventButton title={"BigRedHacks"} logo={require('./hack.png')} intro={"BigRedHacks is the oldest student-run, large-scale hackathon at Cornell University."} />
+          </div>
+          <div class='event-item-4'>
+            <EventButton title={"BigRedHacks"} logo={require('./hack.png')} intro={"BigRedHacks is the oldest student-run, large-scale hackathon at Cornell University."} />
+          </div> */}
+          {/* <div class={this.state.shadow ? '__dark' : 'event-item-3'}>
+            <EventButton onChange={this.changeShadow} title={"BigRedHacks"} logo={require('./hack.png')} intro={"BigRedHacks is the oldest student-run, large-scale hackathon at Cornell University."} />
+          </div>
+          <div class={this.state.shadow ? '__dark' : 'event-item-4'}>
+            <EventButton onChange={this.changeShadow} title={"BigRedHacks"} logo={require('./hack.png')} intro={"BigRedHacks is the oldest student-run, large-scale hackathon at Cornell University."} />
+          </div>
+          <div class={this.state.shadow ? '__dark' : 'event-item-5'}>
+            <EventButton onChange={this.changeShadow} title={"BigRedHacks"} logo={require('./hack.png')} intro={"BigRedHacks is the oldest student-run, large-scale hackathon at Cornell University."} />
+          </div>
+          <div class={this.state.shadow ? '__dark' : 'event-item-6'}>
+            <EventButton onChange={this.changeShadow} title={"BigRedHacks"} logo={require('./hack.png')} intro={"BigRedHacks is the oldest student-run, large-scale hackathon at Cornell University."} />
+          </div>
+          <div class={this.state.shadow ? '__dark' : 'event-item-7'}>
+            <EventButton onChange={this.changeShadow} title={"BigRedHacks"} logo={require('./hack.png')} intro={"BigRedHacks is the oldest student-run, large-scale hackathon at Cornell University."} />
+          </div>
+          <div class={this.state.clicked ? '__dark' : 'event-item-7'}>
+            <EventButton onChange={this.changeShadow} title={"BigRedHacks"} logo={require('./hack.png')} intro={"BigRedHacks is the oldest student-run, large-scale hackathon at Cornell University."} />
+          </div> */}
+        </div>
       </div>
     );
   }
@@ -91,7 +109,9 @@ class EventButton extends React.Component {
 
   render() {
     return (
-      <div class='event_item' >
+
+      <div class='event-btn' >
+
         <img src={this.props.logo} onClick={this.cupInfo} />
         <h3>{this.props.title}</h3>
         <p>{this.props.intro}</p>
