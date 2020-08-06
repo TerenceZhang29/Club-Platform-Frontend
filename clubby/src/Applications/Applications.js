@@ -25,15 +25,9 @@ class ClickableBox extends React.Component {
     }
 
     onClicked() {
-        if (this.state.clicked) {
-            this.setState({
-                clicked: false
-            })
-        } else {
-            this.setState({
-                clicked: true
-            })
-        }
+        this.setState({
+            clicked: !this.state.clicked
+        })
     }
 
     render() {
