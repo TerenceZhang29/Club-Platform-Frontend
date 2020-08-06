@@ -20,6 +20,18 @@
   margin-bottom: 0.75em;
 } 
 
+.introduction_wrapper {
+  text-align: center;
+}
+
+.introduction_wrapper p {
+  font-family: "SF Pro Rounded";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+}
+
 .contact_info_wrapper, .recruitment_info_wrapper {
   background-color: #F1F3F4;
   border-radius: 1em;

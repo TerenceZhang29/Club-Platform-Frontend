@@ -17,9 +17,12 @@ class Club {
 
 const club = new Club();
 
-club.title = "Cornell Appdev";
+club.title = "Cornell App Dev";
 club.image = require('../image/App+Dev+Logo+-+Red.png');
-club.intro = "Cornell University’s open source app development project team. \r\n Simply put, we love building apps. Our 50 members take on various roles surrounding product development, beginning with an initial product vision and design, through engineering development, consistent iteration, and ultimately bringing a functional product to market. Our collaboration leads to stunning products that solve real problems for members of the Cornell and greater Ithaca community."
+club.intro = ["Cornell University’s open source app development project team.",
+  <br />,
+  <br />,
+  "Simply put, we love building apps. Our 50 members take on various roles surrounding product development, beginning with an initial product vision and design, through engineering development, consistent iteration, and ultimately bringing a functional product to market. Our collaboration leads to stunning products that solve real problems for members of the Cornell and greater Ithaca community."];
 club.website = "www.appdev.com";
 club.email = "Appdev@cornell.edu";
 club.phone = "123-456-7890";
@@ -42,8 +45,12 @@ class ClubDetails extends React.Component {
   render() {
     return (
       <div class="club_details_wrapper">
-        <div class="details icon_title_wrapper"></div>
-        <div class="details introduction_wrapper"></div>
+        <div class="details icon_title_wrapper">
+          <div class="img_wrapper"><img src={club.logo}></img></div>
+        </div>
+        <div class="details introduction_wrapper">
+          <p>{club.intro}</p>
+        </div>
         <div class="details contact_info_wrapper"></div>
         <div class="details recruitment_info_wrapper"></div>
       </div>
