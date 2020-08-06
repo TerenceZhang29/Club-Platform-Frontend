@@ -126,23 +126,15 @@ h1 {
   justify-self: flex-end;
 }
 
-.filter .category-list {
-  background-color: #f0efef;
-  height: 200px;
-  overflow-y: scroll;
 }
 
-.category-list .filter_check_box {
-  background-color: #f0efef;
-}
+.club-btn .application-info-section {
+  
+  flex: 4 4 40%;
 
-.filter div{
-  background-color: #e2e1e1;
-  display: block;
-  border-radius: 10px;
-  padding: 5px;
-  margin: 10px;
-  text-align: center;
+  background-color: #fff;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
 
 .filter p{
