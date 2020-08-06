@@ -26,9 +26,8 @@ class Events extends Component {
       //     </div>
       // </div>
       <div>
-
-        <div class='events-page'>
-
+        <h1>Events</h1>
+        <div class='filter-list-container'>
           <EventList />
           <Filter />
         </div>
