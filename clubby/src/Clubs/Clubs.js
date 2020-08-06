@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Card, ListGroup } from 'react-bootstrap';
 import '../css/Clubs.css';
 import history from './../history';
 import axios from 'axios';
