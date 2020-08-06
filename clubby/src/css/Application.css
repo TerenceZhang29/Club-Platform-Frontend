@@ -127,16 +127,11 @@
 
   margin: 0.9em 0.1em 0.85em;
 
-.filter .category-list {
-  background-color: #f0efef;
-  height: 200px;
-  overflow-y: scroll;
 }
 
-.category-list .filter_check_box {
-  background-color: #f0efef;
-}
-
+.club-btn .application-info-section {
+  
+  flex: 4 4 40%;
 
   background-color: #fff;
   border-top-right-radius: 1em;
