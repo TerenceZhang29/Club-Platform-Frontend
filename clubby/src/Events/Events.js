@@ -11,7 +11,6 @@ class Events extends Component {
   render() {
     return (
       <div>
-        <h1>Events</h1>
         <div class='events-page'>
           <EventList />
           <Filter />
