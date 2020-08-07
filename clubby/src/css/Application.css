@@ -117,7 +117,6 @@
   
 }
 
-
 .dot{
 
   display: inline-block;
@@ -129,14 +128,15 @@
 }
 
 
+}
 
-.club-btn .application-info-section {
-  
-  flex: 4 4 40%;
-
-  background-color: #fff;
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
+.filter div{
+  background-color: #e2e1e1;
+  display: block;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
 }
 
 
@@ -146,11 +146,11 @@
   
   background-color: #776DC8;
 
-
   font-size: 0.9em;
   line-height: 1em;
   text-align: center;
   align-items: center;
+
 
   border-radius: 1em;
   
@@ -160,6 +160,7 @@
   margin-top: 3em;
   margin-right: 1.7em;
   margin-bottom: 1em;
+
 
 }
 
