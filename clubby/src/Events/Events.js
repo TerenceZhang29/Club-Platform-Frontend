@@ -117,10 +117,10 @@ class EventList extends React.Component {
     return (
       <div class='event-container'>
         <div class='event-item'>
-          <div class={this.state.shadow1 ? '__dark' : 'event-item-1'}>
+          <div class={this.state.shadow1 ? '__push' : 'event-item-1'}>
             <EventButton onChange={this.changeShadow1} title={"BigRedHacks"} logo={require('./hack.png')} intro={"BigRedHacks is the oldest student-run, large-scale hackathon at Cornell University."} />
           </div>
-          <div class={this.state.shadow2 ? '__dark' : 'event-item-2'}>
+          <div class={this.state.shadow2 ? '__push' : 'event-item-2'}>
             <EventButton onChange={this.changeShadow2} title={"BigRedHacks"} logo={require('./hack.png')} intro={"BigRedHacks is the oldest student-run, large-scale hackathon at Cornell University."} />
           </div>
           {/* <div class='event-item-3'>
