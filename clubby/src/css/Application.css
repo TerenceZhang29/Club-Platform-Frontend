@@ -117,23 +117,23 @@ h1 {
   color: #ffffff;
   font-size: 20px;
   text-align: right;
+
   margin:10px;
   padding: 5px;
   border-radius: 10px;
 
   height: min-content;
   justify-self: flex-end;
+
 }
 
-
-
-.club-btn .application-info-section {
-  
-  flex: 4 4 40%;
-
-  background-color: #fff;
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
+.filter div{
+  background-color: #e2e1e1;
+  display: block;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
 }
 
 .filter p{
@@ -141,6 +141,7 @@ h1 {
   font-size: 20px;
   text-align: left;
 }
+
 
 
 .filter_check_box a {
@@ -158,13 +159,13 @@ h1 {
   margin: 2px;
 }
 
-.filter .category_list {
+.filter .category-list {
   background-color: #f0efef;
   height: 200px;
   overflow-y: scroll;
 }
 
-.category_list .filter_check_box {
+.category-list .filter_check_box {
   background-color: #f0efef;
 }
 
