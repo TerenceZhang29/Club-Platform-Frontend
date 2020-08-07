@@ -33,7 +33,7 @@ club.events = ["Event1", "Event2", "Event3"];
 class ClubHome extends React.Component {
   render() {
     return (
-      <div class='club_home_page'>
+      <div class='club-home-page'>
         <ClubDetails />
         <ClubSlider />
       </div>
@@ -44,15 +44,47 @@ class ClubHome extends React.Component {
 class ClubDetails extends React.Component {
   render() {
     return (
-      <div class="club_details_wrapper">
-        <div class="details icon_title_wrapper">
-          <div class="img_wrapper"><img src={club.logo}></img></div>
+      <div class="club-details-wrapper">
+        <div class="details icon-title-wrapper">
+          <div class="img-wrapper"><img src={club.image}></img></div>
+          <h1>{club.title}</h1>
+          <div class="btn-wrapper"><p>{club.tags[0]}</p>
+          </div>
         </div>
-        <div class="details introduction_wrapper">
+        <div class="details introduction-wrapper">
           <p>{club.intro}</p>
         </div>
-        <div class="details contact_info_wrapper"></div>
-        <div class="details recruitment_info_wrapper"></div>
+        <div class="details contact-info-wrapper">
+          <div class="info-display">
+            <h3>Website</h3>
+            <p>{club.website}</p>
+          </div>
+          <div class="info-display">
+            <h3>Phone</h3>
+            <p>{club.phone}</p>
+          </div>
+          <div class="info-display">
+            <h3>Email</h3>
+            <p>{club.email}</p>
+          </div>
+          <div class="info-display">
+            <h3>Location</h3>
+            <p>{club.location}</p>
+          </div>
+        </div>
+        <div class="details recruitment-info-wrapper">
+          <div class="apply-label">
+            <h2>Apply</h2>
+          </div>
+          <div class="recruit-info">
+            <div class="recruit-detail"><p class="team">IOS Team</p>
+              <p class="time">ends October, 2020</p></div>
+            <div class="recruit-detail"><p class="team">Design Team</p>
+              <p class="time">ends October, 2020</p></div>
+            <div class="recruit-detail"><p class="team">Android Team</p>
+              <p class="time">ends October, 2020</p></div>
+          </div>
+        </div>
       </div>
     )
   }
@@ -61,13 +93,13 @@ class ClubDetails extends React.Component {
 class ClubSlider extends React.Component {
   render() {
     return (
-      <div class="club_slider_wrapper">
+      <div class="club-slider-wrapper">
         <div class="slider">
           <img src={require("./cropped_display_pic.png")} />
         </div>
-        <div class="event_details_wrapper">
-          <div class="event_description">
-            <h3>Event Description</h3>
+        <div class="event-details-wrapper">
+          <div class="event-description">
+            <h4>Event Description</h4>
           </div>
         </div>
       </div>
