@@ -25,7 +25,6 @@
 }
 
 .club-btn {
-  background-color: #fff;
   
   height: fit-content;
   min-width: min-content;
@@ -126,6 +125,14 @@
   border-radius: 50%;
   background-color: #fff;
   margin: 0.9em 0.1em 0.85em;
+}
+
+.club-btn .application-info-section {
+  flex: 40%;
+
+  background-color: #fff;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
 
 
