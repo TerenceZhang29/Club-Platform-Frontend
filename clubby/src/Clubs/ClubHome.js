@@ -19,10 +19,7 @@ const club = new Club();
 
 club.title = "Cornell App Dev";
 club.image = require('../image/App+Dev+Logo+-+Red.png');
-club.intro = ["Cornell University’s open source app development project team.",
-  <br />,
-  <br />,
-  "Simply put, we love building apps. Our 50 members take on various roles surrounding product development, beginning with an initial product vision and design, through engineering development, consistent iteration, and ultimately bringing a functional product to market. Our collaboration leads to stunning products that solve real problems for members of the Cornell and greater Ithaca community."];
+club.intro = "Cornell University’s open source app development project team. Simply put, we love building apps. Our 50 members take on various roles surrounding product development, beginning with an initial product vision and design, through engineering development, consistent iteration, and ultimately bringing a functional product to market. Our collaboration leads to stunning products that solve real problems for members of the Cornell and greater Ithaca community.";
 club.website = "www.appdev.com";
 club.email = "Appdev@cornell.edu";
 club.phone = "123-456-7890";
@@ -47,12 +44,22 @@ class ClubDetails extends React.Component {
       <div class="club-details-wrapper">
         <div class="details icon-title-wrapper">
           <div class="img-wrapper"><img src={club.image}></img></div>
-          <h1>{club.title}</h1>
-          <div class="btn-wrapper"><p>{club.tags[0]}</p>
+          <div class="info-wrapper">
+            <h1>{club.title}</h1>
+            <div class="tag-btn-wrapper">{club.tags[0]}</div>
+            <div class="sub-more-wrapper">
+              <div class="subscribe-btn-wrapper">Subscribe</div>
+              <div class='more-btn'>
+                <div class='dot' />
+                <div class='dot' />
+                <div class='dot' />
+              </div>
+            </div>
           </div>
         </div>
         <div class="details introduction-wrapper">
-          <p>{club.intro}</p>
+          <p>Cornell University’s open source app development project team. <br />Simply put, we love building apps. Our 50 members take on various roles surrounding product development, beginning with an initial product vision and design, through engineering development, consistent intera-</p>
+          <div class="wrapper"><p title={club.intro} class="more-details">...</p></div>
         </div>
         <div class="details contact-info-wrapper">
           <div class="info-display">
@@ -75,6 +82,7 @@ class ClubDetails extends React.Component {
         <div class="details recruitment-info-wrapper">
           <div class="apply-label">
             <h2>Apply</h2>
+            <div class="apply-btn-wrapper">Apply Now</div>
           </div>
           <div class="recruit-info">
             <div class="recruit-detail"><p class="team">IOS Team</p>
@@ -100,6 +108,7 @@ class ClubSlider extends React.Component {
         <div class="event-details-wrapper">
           <div class="event-description">
             <h4>Event Description</h4>
+            <div class="register-btn-wrapper">Register</div>
           </div>
         </div>
       </div>

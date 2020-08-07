@@ -8,10 +8,11 @@
 }
 
 .club-details-wrapper {
-  flex: 1;
+  flex: 1 50%;
   display: flex;
+  max-width: 38rem;
   flex-direction: column;
-  margin: 2em;
+  margin: 2.5em;
   background-color: white;
 }
 
@@ -21,6 +22,11 @@
 } 
 .icon-title-wrapper {
   display: flex;
+  flex-wrap: wrap;
+}
+
+.info-wrapper {
+  margin-left: 1em;
 }
 
 .icon-title-wrapper h1 {
@@ -29,9 +35,11 @@
   font-weight: bold;
   font-size: 40px;
   line-height: 48px;
+  margin: 0;
+  text-align: start;
 }
 
-.btn-wrapper {
+.tag-btn-wrapper {
   background: #4F69D0;
   border-radius: 0.75em;
   width: 8.4em;
@@ -39,17 +47,60 @@
   text-align: center;
   vertical-align: middle;
   padding: 0.25em;
-}
-
-.btn-wrapper p {
   font-family: "SF Pro Rounde";
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
   line-height: 24px;
   margin: 0;
+  margin-top: 0.5em;
   color: #FFFFFF;
+  cursor: pointer;
 }
+
+.sub-more-wrapper {
+  display: flex;
+  width: 100%;
+}
+.subscribe-btn-wrapper {
+  background: #F1F3F4;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  width: 8em;
+  height: 2em;
+  text-align: center;
+  font-family: "SF Pro Rounded";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 36px;
+  padding-top: 0.5rem;
+  margin-top: 1em;
+  margin-right: 0;
+  cursor: pointer;
+}
+
+.more-btn{
+  width: 2em;
+  height: 2em;
+  background-color: #4F69D0;
+  border-radius: 50%;
+  margin-left: 3.75em;
+  margin-top: 2em;
+  cursor: pointer;
+}
+
+.dot{
+
+  display: inline-block;
+  width: 0.2em;
+  height: 0.2em;
+  border-radius: 50%;
+  background-color: #fff;
+  margin: 0.9em 0.1em 0.85em;
+}
+
+
 
 .img-wrapper {
   width: 9.4em;
@@ -66,6 +117,7 @@
 
 .introduction-wrapper {
   text-align: center;
+  max-height: 6em;
 }
 
 .introduction-wrapper p {
@@ -74,11 +126,23 @@
   font-weight: normal;
   font-size: 20px;
   line-height: 24px;
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.more-details {
+  cursor: pointer;
+  width: 0.5em;
 }
 .contact-info-wrapper {
   display: flex;
   flex-wrap: wrap;
   border: transparent;
+  max-height: 191px;
+  padding-bottom: 1em;
 }
 
 .info-display {
@@ -96,6 +160,7 @@
   font-weight: bold;
   font-size: 24px;
   line-height: 29px;
+  margin: 0.75em 0 0 0;
 }
 
 .info-display p {
@@ -104,18 +169,34 @@
   font-weight: normal;
   font-size: 20px;
   line-height: 24px;
+  margin: 0;
 }
 
 .recruitment-info-wrapper {
   display: flex;
   flex-direction: column;
+  max-height: 224px;
 }
 
 .apply-label {
   flex: 1;
   text-align: left;
   padding-left: 1.35em;
+  display: inline-flex;
+  margin-top: 1.5rem;
 }
+
+.apply-btn-wrapper {
+  background: #BCB5F7;
+  border-radius: 20px;
+  text-align: center;
+  width: 7.4rem;
+  height: 2.18rem;
+  padding: 0.3rem;
+  margin-left: 20rem;
+  cursor: pointer;
+}
+
 .apply-label h2 {
   font-family: "SF Pro Rounded";
   font-style: normal;
@@ -123,6 +204,8 @@
   font-size: 30px;
   line-height: 36px;
   color: #4F69D0;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 .recruit-info {
   padding: 0 1.35em 1.35em 1.35em;
@@ -138,6 +221,7 @@
 
 .team, .time {
   width: 50%;
+  margin-bottom: 0;
 }
 
 .team {
@@ -153,7 +237,7 @@
   border-radius: 1em;
 }
 .club-slider-wrapper {
-  flex: 1;
+  flex: 1 50%;
   background-color: #E56959;
   border-top-left-radius: 2.5em;
   padding: 3.25em;
@@ -181,10 +265,26 @@
   padding: 1em;
 }
 
-.event-description h3 {
+.event-description {
+  display: flex;
+}
+
+.event-description h4 {
   font-family: "SF Pro Rounded";
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
   line-height: 29px; 
+  margin: 0;
+}
+
+.register-btn-wrapper {
+  background: #BCB5F7;
+  border-radius: 1em;
+  width: 5.93rem;
+  height: 2.18rem;
+  text-align: center;
+  padding: 0.3rem;
+  margin-left: 18rem;
+  cursor: pointer;
 }
