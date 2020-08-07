@@ -24,9 +24,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App" >
-        <h3>LOG_IN_STATUS: {this.state.log_in}</h3>
+        {/* <h3>LOG_IN_STATUS: {this.state.log_in}</h3> */}
         {console.log(this.state.user)}
-        <GoogleBtn log_in={this.state.log_in} handleLogin={this.handleLogin} />
+        {/* <GoogleBtn log_in={this.state.log_in} handleLogin={this.handleLogin} /> */}
         <Navigation />
         <Routes log_in={this.state.log_in} user={this.state.user} />
       </div>

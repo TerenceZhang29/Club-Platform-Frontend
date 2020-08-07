@@ -1,14 +1,117 @@
-.Home .lander {
-    padding: 80px 0;
+
+* { box-sizing: border-box; }
+.Home {
+    height:100%;
+    width:100%;
+    padding: 0;
+    margin: 0;
     text-align: center;
+    background-color: #fff;
+}
+ul,li,ol {
+    list-style: none;
+}
+img {
+    border:none;
+}
+
+.home-page-container {
+    background-image: #fff;
+}
+
+.pic-display {
+    background-color: #E56959;
+    position: relative;
+    width: 100%;
+    height: 60%;
+    margin-bottom: 3%;
+}
+
+.picUL {
+    transition: all 0.5s;
+}
+.gallery {
+    width: 100%;
+    height: 100%;
+}
+.gallery-cell {
+    width: 66%;
+    height: 569px;
+    margin-right: 10px;
+    background: #E56959;
+    border-radius: 70px;
+    counter-increment: gallery-cell;
+    padding: 30px;
+    position: relative;
+    opacity: 0.7;
+}
+.gallery-cell.is-selected {
+    opacity: 1;
+}
+.gallery-cell:before {
+    display: block;
+    text-align: center;
+    content: counter(gallery-cell);
+    line-height: 200px;
+    font-size: 80px;
+    border-radius: 10px;
+    color: white;
   }
-  
-.Home .lander h1 {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
+
+.subscribed-pane {
+    position: relative;
+    height: 100%;
+    background-color: #ffffff;
+    margin: -20px 0; 
+    text-align: left;
+    padding-bottom: 5%;
 }
-  
-.Home .lander p {
-    color: #999;
+
+.subscribed-pane text {
+    position: relative;
+    width: 220px;
+    height: 29px;
+    padding-left: 3%;
+    font-family: "SF Pro Rounded";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
 }
-  
+
+.club-list {
+    display: flex;
+    position: relative;
+    margin-top: 2%;
+    width: 100%;
+}
+.club-bg {
+    /* flex: 1 188px; */
+    width: 188px;
+    height: 188px;
+    background: #4F69D0;
+    border-radius: 20px;
+    margin: 0 2%;
+    text-align: center;
+    /* vertical-align: middle; */
+}
+.club-logo {
+    text-align: center;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    border-radius: 20px;
+}
+
+.club-logo img {
+    width: 160px;
+    height: 160px;
+    margin-top: 7.5%;
+    border-radius: 20px;
+}
+.club-logo {
+    cursor: pointer;
+}
