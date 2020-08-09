@@ -38,6 +38,85 @@ class ClubHome extends React.Component {
   }
 }
 
+class SubscribeButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      subscribed: true
+    }
+    this.onClicked = this.onClicked.bind(this);
+  }
+
+  onClicked() {
+    this.setState({
+      subscribed: !this.state.subscribed
+    })
+  }
+
+  render() {
+    let text = (this.state.subscribed ? "Subscribed" : "Subscribe")
+    let style = (this.state.subscribed ? "subscribe-btn-wrapper__subscribed" : "subscribe-btn-wrapper")
+    return (
+      <div class={style} onClick={this.onClicked}>{text}</div>
+    )
+  };
+}
+
+class RegisterButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      registered: false
+    }
+    this.onClicked = this.onClicked.bind(this);
+  }
+
+  onClicked() {
+    this.setState({
+      registered: !this.state.registered
+    })
+  }
+
+  render() {
+    let text = (this.state.registered ? "Registered" : "Register")
+    let style = (this.state.registered ? "register-btn-wrapper__registered" : "register-btn-wrapper")
+    return (
+      <div class={style} onClick={this.onClicked}>{text}</div>
+    )
+  };
+}
+
+class HeartButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      favourited: false
+    }
+    this.onClicked = this.onClicked.bind(this);
+  }
+
+  onClicked() {
+    this.setState({
+      favourited: !this.state.favourited
+    })
+  }
+
+  render() {
+    let style1 = (this.state.favourited ? "eclipse1" : "eclipse1__empty")
+    let style2 = (this.state.favourited ? "eclipse2" : "eclipse2__empty")
+    let style3 = (this.state.favourited ? "square" : "square__empty")
+    let style4 = (this.state.favourited ? "square2" : "square2__empty")
+    return (
+      <div class="heart-btn" onClick={this.onClicked}>
+        <div class={style1} />
+        <div class={style2} />
+        <div class={style3} />
+        <div class={style4} />
+      </div>
+    )
+  };
+}
+
 class ClubDetails extends React.Component {
   render() {
     return (
@@ -45,20 +124,36 @@ class ClubDetails extends React.Component {
         <div class="details icon-title-wrapper">
           <div class="img-wrapper"><img src={club.image}></img></div>
           <div class="info-wrapper">
-            <h1>{club.title}</h1>
+            <div class="title-heart-wrapper">
+              <h1>{club.title}</h1>
+              <HeartButton />
+              {/* <div class="heart-btn">
+                <div class="eclipse1__empty" />
+                <div class="eclipse2__empty" />
+                <div class="square__empty" />
+                <div class="square2__empty" />
+              </div> */}
+            </div>
             <div class="tag-btn-wrapper">{club.tags[0]}</div>
             <div class="sub-more-wrapper">
-              <div class="subscribe-btn-wrapper">Subscribe</div>
+              <SubscribeButton />
               <div class='more-btn'>
                 <div class='dot' />
                 <div class='dot' />
                 <div class='dot' />
+                <div class="dropdown-wrapper">
+                  <div class="dropdown-container">
+                    <p>Already a member?</p>
+                    <span><img src={require("./fb_logo.png")}></img><a href="https://www.facebook.com/cornellappdev/">Facebook</a></span>
+                    <span><img src={require("./ins_logo.png")}></img><a href="https://www.instagram.com/cornellappdev/">Instagram</a></span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div class="details introduction-wrapper">
-          <p>Cornell University’s open source app development project team. <br />Simply put, we love building apps. Our 50 members take on various roles surrounding product development, beginning with an initial product vision and design, through engineering development, consistent intera-</p>
+          <p>Cornell University’s open source app development project team. <br /><br />Simply put, we love building apps. Our 50 members take on various roles surrounding product development, beginning with an initial product vision and design, through engineering development, consistent intera-</p>
           <div class="wrapper"><p title={club.intro} class="more-details">...</p></div>
         </div>
         <div class="details contact-info-wrapper">
@@ -98,6 +193,18 @@ class ClubDetails extends React.Component {
   }
 }
 
+window.onload = function () {
+  var more = document.getElementsByClassName("more-btn")[0];
+  more.addEventListener("mouseover", function () {
+    var tar = this.getElementsByClassName("dropdown-wrapper")[0]
+    tar.style.display = "block";
+  }, false);
+  more.addEventListener("mouseout", function () {
+    var tar = this.getElementsByClassName("dropdown-wrapper")[0]
+    tar.style.display = "none";
+  }, false);
+}
+
 class ClubSlider extends React.Component {
   render() {
     return (
@@ -108,7 +215,7 @@ class ClubSlider extends React.Component {
         <div class="event-details-wrapper">
           <div class="event-description">
             <h4>Event Description</h4>
-            <div class="register-btn-wrapper">Register</div>
+            <RegisterButton />
           </div>
         </div>
       </div>

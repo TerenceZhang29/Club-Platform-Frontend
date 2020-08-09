@@ -5,10 +5,12 @@
   font-size: 20px;
   justify-content: space-between;
   background-color: white;
+  font-family: "SF Pro Rounded";
+  z-index: 10;
 }
 
 .club-details-wrapper {
-  flex: 1 50%;
+  flex: 1 1;
   display: flex;
   max-width: 38rem;
   flex-direction: column;
@@ -18,7 +20,7 @@
 
 .details {
   flex: 1;
-  margin-bottom: 0.75em;
+  margin-bottom: 1.2em;
 } 
 .icon-title-wrapper {
   display: flex;
@@ -58,13 +60,112 @@
   cursor: pointer;
 }
 
+.title-heart-wrapper {
+  display: flex;
+}
+
+.heart-btn {
+  width:0px;
+  height:0px;
+  border:0px solid transparent;
+  transform:rotate(45deg);
+  margin-left: 3em;
+  margin-top: 0.25em;
+  cursor: pointer;
+}
+
+.eclipse1 {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: #4F69D0;
+  border-radius: 0.5em;
+  position: relative;
+}
+
+.eclipse1__empty {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 0.1em solid #4F69D0;
+  background-color: #fff;
+  border-radius: 0.5em;
+  position: relative;
+  z-index: 1;
+}
+
+.eclipse2 {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border-radius: 0.5em;
+  position: relative;
+  background-color: #4F69D0;
+  left: 0.5em;
+  top: -1.75em;
+}
+
+.eclipse2__empty {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 0.1em solid #4F69D0;
+  background-color: #fff;
+  border-radius: 0.5em;
+  position: relative;
+  left: 0.5em;
+  top: -1.75em;
+  z-index: 1;
+}
+
+.square {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: #4F69D0;
+  position: relative;
+  left: 0.5em;
+  top: -2.5em;
+}
+
+.square__empty {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 0.1em solid;
+  border-color: transparent #4F69D0 #4F69D0 transparent;
+  background-color: #fff;
+  position: relative;
+  left: 0.5em;
+  top: -2.5em;
+}
+
+.square2 {
+  display: none;
+}
+
+.square2__empty {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.8em;
+  /* border: 0.1em solid; */
+  /* border-color: transparent #4F69D0 #4F69D0 transparent; */
+  background-color: #fff;
+  position: relative;
+  left: 0.5em;
+  top: -3.75em;
+  z-index: 2;
+}
+
+
+
+
 .sub-more-wrapper {
   display: flex;
   width: 100%;
 }
 .subscribe-btn-wrapper {
   background: #F1F3F4;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
   width: 8em;
   height: 2em;
@@ -74,7 +175,25 @@
   font-weight: normal;
   font-size: 30px;
   line-height: 36px;
-  padding-top: 0.5rem;
+  padding-top: 0.7rem;
+  margin-top: 1em;
+  margin-right: 0;
+  cursor: pointer;
+}
+
+.subscribe-btn-wrapper__subscribed {
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+  background: #F1F3F4;
+  border-radius: 1rem;
+  width: 8em;
+  height: 2em;
+  text-align: center;
+  font-family: "SF Pro Rounded";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 36px;
+  padding-top: 0.7rem;
   margin-top: 1em;
   margin-right: 0;
   cursor: pointer;
@@ -85,13 +204,12 @@
   height: 2em;
   background-color: #4F69D0;
   border-radius: 50%;
-  margin-left: 3.75em;
+  margin-left: 4.7em;
   margin-top: 2em;
   cursor: pointer;
 }
 
 .dot{
-
   display: inline-block;
   width: 0.2em;
   height: 0.2em;
@@ -100,8 +218,41 @@
   margin: 0.9em 0.1em 0.85em;
 }
 
+.dropdown-wrapper {
+  width: 20em;
+  height: 9em;
+  margin-left: 0.5em;
+}
+.dropdown-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #F1F3F4;
+  border-radius: 0 1.5em 1.5em 1.5em;
+  opacity: 0.9;
+  padding: 1.5em;
+}
 
+.dropdown-container p, .dropdown-container span {
+  margin: 0;
+  margin-bottom: 0.5em;
+}
 
+a {
+  text-decoration: none;
+  vertical-align: middle;
+  font-family: "SF Pro Rounded";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  height: 24px;
+  align-items: center;
+  text-align: center;
+}
+
+.dropdown-container img {
+  margin-right: 0.5em;
+}
 .img-wrapper {
   width: 9.4em;
   height: 9.4em;
@@ -117,7 +268,7 @@
 
 .introduction-wrapper {
   text-align: center;
-  max-height: 6em;
+  max-height: 7em;
 }
 
 .introduction-wrapper p {
@@ -237,7 +388,7 @@
   border-radius: 1em;
 }
 .club-slider-wrapper {
-  flex: 1 50%;
+  flex: 1 1;
   background-color: #E56959;
   border-top-left-radius: 2.5em;
   padding: 3.25em;
@@ -255,6 +406,7 @@
   width:100%;
   height: 100%;
 }
+
 
 .event-details-wrapper {
   flex: 1;
@@ -285,6 +437,17 @@
   height: 2.18rem;
   text-align: center;
   padding: 0.3rem;
-  margin-left: 18rem;
+  margin-left: 17rem;
+  cursor: pointer;
+}
+
+.register-btn-wrapper__registered {
+  background: #BCB5F7;
+  border-radius: 1em;
+  width: 6.5rem;
+  height: 2.18rem;
+  text-align: center;
+  padding: 0.3rem;
+  margin-left: 17rem;
   cursor: pointer;
 }
