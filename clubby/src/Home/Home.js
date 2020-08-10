@@ -57,6 +57,13 @@ class SubscribedClubs extends Component {
           <span class="club-bg">
             <MyClub title={"Cornell Appdev"} logo={require("./club_logo2.png")} />
           </span>
+          <span class="club-bg">
+            <div class="more-bg">
+              <div class='dot' />
+              <div class='dot' />
+              <div class='dot' />
+            </div>
+          </span>
         </div>
       </div>
     )
@@ -82,7 +89,7 @@ class MyClub extends Component {
   render() {
     return (
       <div class='club-logo' onClick={this.ToClubHomePage}>
-        <div><img title={this.props.title} src={this.props.logo} /></div>
+        <img title={this.props.title} src={this.props.logo} />
       </div>
     )
   }
