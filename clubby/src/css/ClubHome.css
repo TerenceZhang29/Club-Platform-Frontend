@@ -5,7 +5,7 @@
   font-size: 20px;
   justify-content: space-between;
   background-color: white;
-  font-family: "SF Pro Rounded";
+  font-family:sans-serif;
   z-index: 10;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .icon-title-wrapper h1 {
-  font-family: "SF Pro Rounded";
+  font-family:sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 40px;
@@ -49,7 +49,7 @@
   text-align: center;
   vertical-align: middle;
   padding: 0.25em;
-  font-family: "SF Pro Rounde";
+  font-family:sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
@@ -63,7 +63,18 @@
 .title-heart-wrapper {
   display: flex;
 }
-
+.heart-btn-wrapper {
+  display: block;
+  width: 24.07px;
+  height: 22px;
+  margin-left: 3.3rem;
+  margin-top: 1rem;
+}
+.heart-btn-wrapper img {
+  width: 24.07px;
+  height: 22px;
+  
+}
 .heart-btn {
   width:0px;
   height:0px;
@@ -165,12 +176,13 @@
   width: 100%;
 }
 .subscribe-btn-wrapper {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   background: #F1F3F4;
   border-radius: 1rem;
   width: 8em;
   height: 2em;
   text-align: center;
-  font-family: "SF Pro Rounded";
+  font-family:sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 30px;
@@ -188,7 +200,7 @@
   width: 8em;
   height: 2em;
   text-align: center;
-  font-family: "SF Pro Rounded";
+  font-family:sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 30px;
@@ -240,7 +252,7 @@
 a {
   text-decoration: none;
   vertical-align: middle;
-  font-family: "SF Pro Rounded";
+  font-family:sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
@@ -253,41 +265,56 @@ a {
 .dropdown-container img {
   margin-right: 0.5em;
 }
-.img-wrapper {
+
+.logo-img {
+  border: 10px solid #4F69D0;
+  border-radius: 35px;
   width: 9.4em;
   height: 9.4em;
-  padding: 0.5em;
-  border-radius: 1.5em;
-  background-color: #4F69D0;
-}
-
-.img-wrapper img {
-  width: 100%;
-  height: 100%;
 }
 
 .introduction-wrapper {
-  text-align: center;
-  max-height: 7em;
+  text-align: left;
+  overflow: hidden;
 }
-
 .introduction-wrapper p {
-  font-family: "SF Pro Rounded";
+  margin:0;
+}
+.intro-box {
+  font-family: sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
   line-height: 24px;
-  margin: 0;
+  overflow: hidden;
+  max-height: 6em;
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: row-reverse;
+.intro-box__expand {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  overflow: hidden;
+  max-height: auto;
+
 }
+
+.more-detail-wrapper {
+  margin-bottom:1.2em;
+}
+
 .more-details {
   cursor: pointer;
-  width: 0.5em;
+  text-align: right;
+  margin: 0;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
 }
+
 .contact-info-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -306,7 +333,7 @@ a {
 
 .info-display h3 {
   color: #4F69D0;
-  font-family: "SF Pro Rounded";
+  font-family:sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
@@ -315,7 +342,7 @@ a {
 }
 
 .info-display p {
-  font-family: "SF Pro Rounded";
+  font-family:sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
@@ -349,7 +376,7 @@ a {
 }
 
 .apply-label h2 {
-  font-family: "SF Pro Rounded";
+  font-family:sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 30px;
@@ -392,22 +419,39 @@ a {
   background-color: #E56959;
   border-top-left-radius: 2.5em;
   padding: 3.25em;
-  display: flex;
   flex-direction: column;
 }
 
 .slider {
-  flex: 6;
   width:100%;
   height: 100%; 
 }
 
-.slider img {
-  width:100%;
-  height: 100%;
+.slider-cell {
+  width: 100%;
+	height: 100%;
 }
 
+.flickity-prev-next-button {
+  width: 100px;
+  height: 100px;
+  background: transparent;
+  margin-left: -60px;
+  margin-right: -60px;
+}
+/* arrow color */
+.flickity-prev-next-button .arrow {
+  fill: white;
+}
+.flickity-prev-next-button.no-svg {
+  color: white;
+}
+/* hide disabled button */
+.flickity-prev-next-button:disabled {
+  display: none;
+}
 
+/* 
 .event-details-wrapper {
   flex: 1;
   background-color: #F1F3F4;
@@ -422,7 +466,7 @@ a {
 }
 
 .event-description h4 {
-  font-family: "SF Pro Rounded";
+  font-family:sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
@@ -450,4 +494,4 @@ a {
   padding: 0.3rem;
   margin-left: 17rem;
   cursor: pointer;
-}
+} */

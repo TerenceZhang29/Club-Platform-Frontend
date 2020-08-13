@@ -19,7 +19,7 @@ const club = new Club();
 
 club.title = "Cornell App Dev";
 club.image = require('../image/App+Dev+Logo+-+Red.png');
-club.intro = "Cornell University’s open source app development project team. Simply put, we love building apps. Our 50 members take on various roles surrounding product development, beginning with an initial product vision and design, through engineering development, consistent iteration, and ultimately bringing a functional product to market. Our collaboration leads to stunning products that solve real problems for members of the Cornell and greater Ithaca community.";
+club.intro = ["Cornell University’s open source app development project team.", <br />, <br />, "Simply put, we love building apps. Our 50 members take on various roles surrounding product development, beginning with an initial product vision and design, through engineering development, consistent iteration, and ultimately bringing a functional product to market. Our collaboration leads to stunning products that solve real problems for members of the Cornell and greater Ithaca community."];
 club.website = "www.appdev.com";
 club.email = "Appdev@cornell.edu";
 club.phone = "123-456-7890";
@@ -86,7 +86,29 @@ class RegisterButton extends React.Component {
   };
 }
 
-class HeartButton extends React.Component {
+class HeartBtn extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fav: false
+    }
+    this.onClicked = this.onClicked.bind(this);
+  }
+  onClicked() {
+    this.setState({
+      fav: !this.state.fav
+    })
+  }
+
+  render() {
+    let pic = (this.state.fav ? require("./heart.png") : require("./heart_empty.png"))
+    return (
+      <div class="heart-btn-wrapper" onClick={this.onClicked}><img src={pic} /> </div>
+    )
+  }
+}
+
+class HeartBtn2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -117,45 +139,95 @@ class HeartButton extends React.Component {
   };
 }
 
+class MoreBtn extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalIsOpen: 'none',
+    }
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
+
+  }
+
+  handleMouseOver(e) {
+    this.setState({
+      modalIsOpen: 'block'
+    })
+  }
+
+  handleMouseOut(e) {
+    this.setState({
+      modalIsOpen: 'none'
+    })
+  }
+
+  render() {
+    return (
+      <div class='more-btn' onMouseOver={this.handleMouseOver}
+        onMouseLeave={this.handleMouseOut}>
+        <div class='dot' />
+        <div class='dot' />
+        <div class='dot' />
+        <div class="dropdown-wrapper"
+          style={{ display: this.state.modalIsOpen }}>
+          <div class="dropdown-container">
+            <p>Already a member?</p>
+            <span><img src={require("./fb_logo.png")}></img><a href="https://www.facebook.com/cornellappdev/">Facebook</a></span>
+            <span><img src={require("./ins_logo.png")}></img><a href="https://www.instagram.com/cornellappdev/">Instagram</a></span>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+
+}
+
+class DetailBtn extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      expand: false
+    }
+    this.onClicked = this.onClicked.bind(this);
+  }
+  onClicked() {
+    this.setState({
+      expand: !this.state.expand
+    })
+  }
+
+  render() {
+    let style = (this.state.expand ? "intro-box__expand" : "intro-box")
+    return (
+      <div class="details introduction-wrapper">
+        <p class={style}>{club.intro}</p>
+        <div class="more-detail-wrapper" onClick={this.onClicked}><p class="more-details">...</p></div>
+      </div>
+
+    )
+  }
+}
 class ClubDetails extends React.Component {
   render() {
     return (
       <div class="club-details-wrapper">
         <div class="details icon-title-wrapper">
-          <div class="img-wrapper"><img src={club.image}></img></div>
+          <img class="logo-img" src={club.image}></img>
           <div class="info-wrapper">
             <div class="title-heart-wrapper">
               <h1>{club.title}</h1>
-              <HeartButton />
-              {/* <div class="heart-btn">
-                <div class="eclipse1__empty" />
-                <div class="eclipse2__empty" />
-                <div class="square__empty" />
-                <div class="square2__empty" />
-              </div> */}
+              <HeartBtn />
             </div>
             <div class="tag-btn-wrapper">{club.tags[0]}</div>
             <div class="sub-more-wrapper">
               <SubscribeButton />
-              <div class='more-btn'>
-                <div class='dot' />
-                <div class='dot' />
-                <div class='dot' />
-                <div class="dropdown-wrapper">
-                  <div class="dropdown-container">
-                    <p>Already a member?</p>
-                    <span><img src={require("./fb_logo.png")}></img><a href="https://www.facebook.com/cornellappdev/">Facebook</a></span>
-                    <span><img src={require("./ins_logo.png")}></img><a href="https://www.instagram.com/cornellappdev/">Instagram</a></span>
-                  </div>
-                </div>
-              </div>
+              <MoreBtn />
             </div>
           </div>
         </div>
-        <div class="details introduction-wrapper">
-          <p>Cornell University’s open source app development project team. <br /><br />Simply put, we love building apps. Our 50 members take on various roles surrounding product development, beginning with an initial product vision and design, through engineering development, consistent intera-</p>
-          <div class="wrapper"><p title={club.intro} class="more-details">...</p></div>
-        </div>
+        <DetailBtn />
         <div class="details contact-info-wrapper">
           <div class="info-display">
             <h3>Website</h3>
@@ -193,125 +265,29 @@ class ClubDetails extends React.Component {
   }
 }
 
-window.onload = function () {
-  var more = document.getElementsByClassName("more-btn")[0];
-  more.addEventListener("mouseover", function () {
-    var tar = this.getElementsByClassName("dropdown-wrapper")[0]
-    tar.style.display = "block";
-  }, false);
-  more.addEventListener("mouseout", function () {
-    var tar = this.getElementsByClassName("dropdown-wrapper")[0]
-    tar.style.display = "none";
-  }, false);
-}
-
 class ClubSlider extends React.Component {
   render() {
     return (
       <div class="club-slider-wrapper">
-        <div class="slider">
-          <img src={require("./cropped_display_pic.png")} />
-        </div>
-        <div class="event-details-wrapper">
-          <div class="event-description">
-            <h4>Event Description</h4>
-            <RegisterButton />
-          </div>
+        <div class="slider js-flickity" data-flickity-options='{ "freeScroll": true, "wrapAround": true, "autoPlay":4000}'>
+          <img class="slider-cell" src={require("./display_pic1.jpeg")} alt="" ></img>
+          <img class="slider-cell" src={require("./display_pic2.jpeg")} alt=""></img>
+          <img class="slider-cell" src={require("./display_pic3.jpeg")}></img>
         </div>
       </div>
+      // <div class="club-slider-wrapper">
+      //   <div class="slider">
+      //     <img src={require("./cropped_display_pic.png")} />
+      //   </div>
+      //   <div class="event-details-wrapper">
+      //     <div class="event-description">
+      //       <h4>Event Description</h4>
+      //       <RegisterButton />
+      //     </div>
+      //   </div>
+      // </div>
     )
   }
 }
-// class ClubHome extends React.Component {
-//   render() {
-//     return (
-//       <div class='club_home_page'>
-//         <body>
-//           <ClubNameIcon />
-//           <ClubIntroContact />
-//           <ClubEvents />
-
-//         </body>
-//       </div>
-//     )
-//   }
-
-// }
-
-// class ClubNameIcon extends React.Component {
-//   render() {
-//     return (
-//       <div class="club_name_image_section">
-//         <div class='image'><img src={club.image} /></div>
-//         <div class="title_sub">
-//           <h1>{club.title}</h1>
-//           <div>Already a member? <div class='sub_bt'> Subscribe</div></div>
-//         </div>
-//       </div>
-
-
-//     );
-//   }
-// }
-
-// class ClubIntroContact extends React.Component {
-//   render() {
-//     return (
-//       <div class="club_intro_info_section">
-//         <div class='intro'>
-//           <h2>About</h2>
-//           <p>{club.intro}</p>
-//         </div>
-//         <div class='contact'>
-//           <div class='contact_cell'>
-//             <h3>Email</h3>
-//             <p>{club.email}</p>
-//           </div>
-//           <div class='contact_cell'>
-//             <h3>Website</h3>
-//             <p>{club.website}</p>
-//           </div>
-//           <div class='contact_cell'>
-//             <h3>Phone</h3>
-//             <p>{club.phone}</p>
-//           </div>
-//           <div class='contact_cell'>
-//             <h3>Location</h3>
-//             <p>{club.location}</p>
-//           </div>
-
-//         </div>
-//       </div>
-//     )
-//   }
-// }
-
-// class ClubEvents extends React.Component {
-//   renderEventBT() {
-//     var tags = []
-
-//     for (var i = 0; i < club.events.length; i++) {
-//       tags.push(<div class='event_tag'>{club.events[i]}</div>)
-//     }
-
-//     return (
-//       <div class='event_tag_wrapper'>
-//         {tags}
-//       </div>
-//     )
-//   }
-
-//   render() {
-//     return (
-//       <div class='club_events'>
-//         <h2>Recent Events</h2>
-//         {this.renderEventBT()}
-//       </div>
-//     )
-//   }
-
-
-
-// }
 
 export default ClubHome;
