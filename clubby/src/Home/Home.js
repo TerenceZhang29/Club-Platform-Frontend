@@ -5,14 +5,49 @@ import "../css/Home.css";
 import Flickity from "flickity";
 import "../../node_modules/flickity/css/flickity.css";
 import "../../node_modules/flickity/dist/flickity.min.css";
+import axios from 'axios';
 
 export default class Home extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      clubs: []
+    }
+
+    this.getAllClubs = this.getAllClubs.bind(this);
+    this.extractData = this.extractData.bind(this);
+    this.getAllClubs();
+  }
+
+  extractData(response) {
+    var responseData = response.data['data'];
+    for (var i = 0; i < 5; i++) {
+      var localClubs = this.state.clubs;
+      localClubs.push({ title: responseData[i]['name'] });
+      this.setState({ clubs: localClubs })
+      console.log("IN EXTRACTDATA:")
+      console.log(this.state.clubs.length)
+    }
+  }
+
+  getAllClubs() {
+    axios({
+      method: 'GET',
+      url: 'http://127.0.0.1:5000/api/clubs',
+    })
+      .then((response) => this.extractData(response))
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
   render() {
     return (
       <div className="Home">
         <div class="home-page-container">
           <DisplayPic />
-          <SubscribedClubs />
+          <SubscribedClubs clubs={this.state.clubs} />
         </div>
       </div>
     );
@@ -35,27 +70,23 @@ class DisplayPic extends Component {
 
 class SubscribedClubs extends Component {
   render() {
+    var clubComponent = this.props.clubs.map(club =>
+      <span class="club-bg">
+        <MyClub title={club.title} logo={require("./club_logo2.png")} />
+      </span>
+    );
+
     return (
       <div class="subscribed-pane">
         <text>Most interested Clubs</text>
         <div class="club-list">
+          {clubComponent}
           <span class="club-bg">
-            <MyClub title={"Cornell Appdev"} logo={require("./club_logo2.png")} />
-          </span>
-          {/* <span class="club-bg">
-            <MyClub title={"Ascend Cornell Chapter"} logo={require("./Ascend_logo.JPG")} />
-          </span> */}
-          <span class="club-bg">
-            <MyClub title={"Cornell Appdev"} logo={require("./club_logo2.png")} />
-          </span>
-          <span class="club-bg">
-            <MyClub title={"Cornell Appdev"} logo={require("./club_logo2.png")} />
-          </span>
-          <span class="club-bg">
-            <MyClub title={"Cornell Appdev"} logo={require("./club_logo2.png")} />
-          </span>
-          <span class="club-bg">
-            <MyClub title={"Cornell Appdev"} logo={require("./club_logo2.png")} />
+            <div class="more-bg">
+              <div class='dot' />
+              <div class='dot' />
+              <div class='dot' />
+            </div>
           </span>
         </div>
       </div>
@@ -82,7 +113,7 @@ class MyClub extends Component {
   render() {
     return (
       <div class='club-logo' onClick={this.ToClubHomePage}>
-        <div><img title={this.props.title} src={this.props.logo} /></div>
+        <img title={this.props.title} src={this.props.logo} alt={this.props.title} />
       </div>
     )
   }
