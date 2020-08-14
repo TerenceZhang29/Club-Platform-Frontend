@@ -200,10 +200,11 @@ class DetailBtn extends React.Component {
 
   render() {
     let style = (this.state.expand ? "intro-box__expand" : "intro-box")
+    let text = (this.state.expand ? "collapse" : "more")
     return (
       <div class="details introduction-wrapper">
         <p class={style}>{club.intro}</p>
-        <div class="more-detail-wrapper" onClick={this.onClicked}><p class="more-details">...</p></div>
+        <div class="more-detail-wrapper" onClick={this.onClicked}><p class="more-details">{text}</p></div>
       </div>
 
     )
@@ -275,17 +276,6 @@ class ClubSlider extends React.Component {
           <img class="slider-cell" src={require("./display_pic3.jpeg")}></img>
         </div>
       </div>
-      // <div class="club-slider-wrapper">
-      //   <div class="slider">
-      //     <img src={require("./cropped_display_pic.png")} />
-      //   </div>
-      //   <div class="event-details-wrapper">
-      //     <div class="event-description">
-      //       <h4>Event Description</h4>
-      //       <RegisterButton />
-      //     </div>
-      //   </div>
-      // </div>
     )
   }
 }
