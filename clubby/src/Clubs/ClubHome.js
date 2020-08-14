@@ -180,8 +180,6 @@ class MoreBtn extends React.Component {
       </div>
     )
   }
-
-
 }
 
 class DetailBtn extends React.Component {
@@ -206,7 +204,6 @@ class DetailBtn extends React.Component {
         <p class={style}>{club.intro}</p>
         <div class="more-detail-wrapper" onClick={this.onClicked}><p class="more-details">{text}</p></div>
       </div>
-
     )
   }
 }
