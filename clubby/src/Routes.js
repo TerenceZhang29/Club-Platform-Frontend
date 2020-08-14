@@ -9,6 +9,7 @@ import Applications from "./Applications/Applications";
 import Home from "./Home/Home";
 import Profile from "./Profile/Profile";
 import history from './history';
+import EventPage from "./Events/EventPage";
 
 export default class Routes extends Component {
     render() {
@@ -22,6 +23,7 @@ export default class Routes extends Component {
                     <Route path="/cupInfo" component={CupInfo} />
                     <Route path="/ClubHome" component={ClubHome} />
                     <Route path="/Profile" component={Profile} />
+                    <Route path="/EventPage" component={EventPage} />
                 </Switch>
             </Router>
         )
