@@ -30,6 +30,23 @@
       font-size: 40px;
       line-height: 48px;
   }
+
+  .register-selection__visible {
+      background-color: #BCB5F7;
+      position: absolute;
+      width: 169px;
+      height: 120px;
+      left: 304px;
+      top: 305px;
+      border-radius: 0px 30px 30px 30px;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 1rem;
+  }
+  .register-selection__visible text {
+      margin-bottom: 1rem;
+      cursor: pointer;
+  }
   
   .heart-btn-wrapper {
       margin-left: 6.5em;

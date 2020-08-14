@@ -39,9 +39,18 @@ class RegisterButton extends React.Component {
 
     render() {
         let text = (this.state.registered ? "Registered" : "Register")
-        let style = (this.state.registered ? "register-btn-wrapper__registered" : "register-btn-wrapper")
+        let style = (this.state.registered ? "register-btn-wrapper__registered" : "register-btn-wrapper");
+        let style2 = (this.state.registered ? "register-selection__visible" : "register-selection")
+        let text1 = (this.state.registered ? "Private" : "")
+        let text2 = (this.state.registered ? "Public" : "")
         return (
-            <div class={style} onClick={this.onClicked}>{text}</div>
+            <div>
+                <div class={style} onClick={this.onClicked}>{text}</div>
+                <div class={style2}>
+                    <text>{text1}</text>
+                    <text>{text2}</text>
+                </div>
+            </div>
         )
     };
 }
