@@ -70,7 +70,7 @@ class HeartBtn extends React.Component {
     }
 
     render() {
-        let pic = (this.state.fav ? require("./heart.png") : require("./heart_empty.png"))
+        let pic = (this.state.fav ? require("./blue_heart.png") : require("./blue_heart_empty.png"))
         return (
             <div class="heart-btn-wrapper" onClick={this.onClicked}><img src={pic} /> </div>
         )
