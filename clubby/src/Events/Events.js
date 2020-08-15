@@ -252,7 +252,7 @@ class HeartButtom extends React.Component {
   toggleImage = () => {
     this.setState(state => ({ open: !state.open }))
   }
-  getImageName = () => this.state.open ? 'filled_heart' : 'Heart'
+  getImageName = () => this.state.open ? 'blue_heart' : 'blue_heart_empty'
 
   handleClick = () => {
     this.setState(state => ({ open: !state.open }));
