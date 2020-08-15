@@ -1,69 +1,299 @@
-body {
-  font-family: Arial, Helvetica, sans-serif; 
-  background: #e5e5e5;
-  text-align: center;
-}
-
-.sidebar_content_wrapper {
-  margin: 30px 0 0 0;
+.profile-page{
+  font-size: 20px;
+  background-color: #fff;
   display: flex;
 }
 
-.side_bar{
-  flex: 1 200px;
-  height: fit-content;
-  background-color: #c4c4c4;
-  border-radius: 15px;
-  margin: 0 20px 0 20px;
+.left-content-wrapper{
+  flex: 47.5%;
+  margin:0;
+  padding:0;
+  
+  margin: 0 1em 0 2.65em;
 }
 
-.side_btn{
-  background-color: #e2e1e1;
-  display: block;
-  border-radius: 10px;
-  padding: 5px;
-  margin: 10px;
-  text-align: center;
+.right-content-wrapper{
+  flex: 52.5%;
+  background-color: #E56959;
+  border-top-left-radius: 2.5em;
+
+ 
 }
 
-.main_content{
-  flex: 3 600px;
-  border-radius: 15px;
-  margin: 0 30px 0 20px;
+.picture-name-section{
+  margin-top: 6em;
+  display:flex;
 }
 
-.content_section{
-  display: block;
-  background-color: #c4c4c4;
-  border-radius: 10px;
+  .user-pic img{
+  height: 9.4em;
+  width: 9.4em;
+  border: 0.5em solid #4F69D0;
+  border-radius: 1.55em;
+  }
+
+  .user-name-tag{
+    flex: 100%;
+  }
+
+  .user-name-tag h2{
+    margin: 0 0 0 1.325em;
+    font-size: 40px;
+    text-align: left;
+  }
+
+  .tag-btn-container{
+    display: flex;
+    margin: 0.3em 3.35em 0 2.65em;
+  }
+
+  .tag-btn{
+    font-size: 14px;
+    height: fit-content;
+    width: fit-content;
+    background-color:  #4F69D0;
+    color: #fff;
+    border-radius: 1em;
+    padding: 0.4em 1.5em;
+
+    margin-right: 1em;
+  
+  }
+
+  .btn-wrapper{
+    display:flex;
+    margin: 2.5em 2.7em 0 2.65em;
+  }
+  
+  .setting-btn {
+    width: fit-content;
+    height:fit-content;
+    
+    white-space: nowrap;
+    padding: 0.6em 2.35em;
+
+    background: #BCB5F7;
+    border-radius: 1em;
+    margin-right: 1.35em;
+  }
+
+  .contact-section{
+    display:flex;
+    justify-content: space-around;
+    background-color: #F1F3F4;
+    border-radius: 1em;
+
+    margin-top: 1.73em;
+  }
+
+  .sub-contact-section{
+    margin-left: 1.5em;
+    margin-right: 6em;
+  }
+
+  .sub-contact-section h3{
+    font-size: 24px;
+    text-align: left;
+    color: #4F69D0;
+    margin:0.83em 0 0 0;
+  }
+
+  .sub-contact-section p{
+    margin-bottom: 1em;
+    margin-top: 0.5em;
+
+    white-space: nowrap;
+  }
+
+  .your-clubs-section{
+    background-color: #F1F3F4;
+    border-radius: 1em;
+
+    margin: 1em 0;
+    padding: 0.5em 0 1em 1.5em;
+  }
+
+  .your-club-gallery{
+    display:flex;
+    justify-content: space-around;
+    margin-top: 1em;
+  }
+
+  .your-club-img img{
+    height: 6.5em;
+    width: 6.5em;
+
+    border: 0.5em solid #4F69D0;
+    border-radius: 0.75em;
+
+    margin-right: 2.65em;
+  } 
+
+  .arrow img{
+    position: relative;
+    top: 2.5em;
+    height: 1.2em;
+    width: 0.6em;
+
+    margin-right: 3em;
+
+    filter: invert(100%);
+  }
+
+  .your-application-section{
+    background-color: #F1F3F4;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+
+    padding: 0.5em 0 1em 1.5em;
+  }
+
+  .section-head{
+    font-size: 30px;
+    margin:0;
+    color:#4F69D0;
+    text-align: left;
+  }
+
+
+.application-tag{
+  margin: 1.5em 2.5em 1em 1.25em;
+  display: flex;
+
 }
 
-.content_section h3{
+.application-img{
+  flex: 15%;
+}
+
+.application-img img{
+  height: 4em;
+  width: 4em;
+  border: 5px solid #4F69D0;
+  border-radius: 0.75em;
+}
+
+.application-tag p{
+  margin:0;
+  font-size: 14px;
   text-align: left;
-  margin: 10px;
-  font-size: 35px;
 }
 
-.switch_btn, .switch_btn_active{
+.application-tag h4{
+  margin: 0;
   text-align: left;
-  font-size: 15px; 
-  margin: 5px 10px 5px 10px;
-  padding: 5px; 
-  display: block;
+  margin-bottom: 1em;
 
+}
+
+.application-text{
+  flex: 55%;
+  margin-left: 1.7em;
+}
+
+
+.application-status{
+  flex: 30%;
+  position: relative;
+  top: 1em;
   
 }
 
-.switch_btn span{
-  background-color: #707070a4; 
-  padding: 5px;
-  border-radius: 3px;
-  cursor: pointer;
+.status-btn{
+  height: fit-content;
+  background: #BCB5F7;
+  border-radius: 20px;
+
+  font-size:18px;
+
+  padding: 7px 24px;
 }
 
-.switch_btn_active span{
-  background-color: #9b9b9bb9; 
-  padding: 5px;
-  border-radius: 3px;
-  cursor: pointer;
+.right-content-wrapper{
+  display: flex;
+  flex-flow: column;
+}
+.subscribed-club-section{
+  background-color: #fff;
+  border-radius: 1em;
+
+  margin: 3.2em 3.5em 1.25em 3.5em;
+  padding: 1.5em 0 2em 1.5em;
+
+  flex: 0 1 auto;
+}
+
+.subscribed-club-section h3{
+  font-size: 30px;
+  color: #4F69D0;
+  text-align: left;
+  margin: 0;
+}
+
+.subscribed-club-section .your-club-gallery{
+  margin-left: 1.5em;
+}
+
+.registered-event-section{
+  
+  background-color: #fff;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+
+  margin: 0 3.5em;
+  padding: 1.5em 0 2em 1.5em;
+
+  flex: 1 1 auto;
+}
+
+.registered-event-section h3{
+  font-size: 30px;
+  color: #4F69D0;
+  text-align: left;
+  margin: 0;
+}
+
+.event-tag{
+  margin: 2em 2.5em 1em 1.25em;
+  display: flex;
+}
+
+.event-img img{
+  height: 4em;
+  width: 4em;
+  border: 5px solid #4F69D0;
+  border-radius: 0.75em;
+}
+
+.event-text h4{
+  margin:0;
+  text-align: left;
+  font-weight: bold;
+
+  margin-bottom: 0.3em;
+}
+
+.event-tag p{
+  margin:0;
+  text-align: left;
+  margin-bottom: 0.3em;
+
+  white-space: nowrap;
+}
+
+.event-img{
+  flex: 15%;
+}
+
+.event-text{
+  flex: 45%;
+  margin-left: 1.7em;
+}
+
+.event-time-loc{
+  flex:40%;
+}
+
+.event-time-loc p{
+  text-align: right;
 }

@@ -19,7 +19,7 @@ const Navigation = (props) => {
         club_tag_class += ' __onpage'
     } else if (loc == "/Events") {
         event_tag_class += ' __onpage'
-    } else if (loc == "/Applications") {
+    } else if (loc == "/Profile") {
         app_tag_class += ' __onpage'
     }
 
@@ -34,7 +34,7 @@ const Navigation = (props) => {
                 <Nav.Link bsPrefix={home_tag_class} href="/">&nbsp;&nbsp;Home&nbsp;&nbsp;</Nav.Link>
                 <Nav.Link bsPrefix={club_tag_class} href="/Clubs">&nbsp;&nbsp;Clubs&nbsp;&nbsp;</Nav.Link>
                 <Nav.Link bsPrefix={event_tag_class} href="/Events">&nbsp;&nbsp;Events&nbsp;&nbsp;</Nav.Link>
-                <Nav.Link bsPrefix={app_tag_class} href="/Applications">Applications</Nav.Link>
+                <Nav.Link bsPrefix={app_tag_class} href="/Profile">Profile</Nav.Link>
             </Nav>
             <Form inline>
                 <FormControl type="text" placeholder="Search" className="search-input" />

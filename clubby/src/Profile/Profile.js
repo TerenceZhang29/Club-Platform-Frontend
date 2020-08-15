@@ -1,62 +1,17 @@
 import React, { Component } from 'react';
 import '../css/Profile.css';
 
-export default class Profile extends React.Component {
-  render() {
-    return (
-      <div>
-        <body>
-          <div class="sidebar_content_wrapper">
-            <SideBar />
-            <MainContent />
-          </div>
-
-        </body>
-      </div>
-    )
-  }
-}
-
-class SideBar extends React.Component {
-  render() {
-    return (
-      <div class="side_bar">
-        <SideBtn text={"Profile"} />
-        <SideBtn text={"Clubs"} />
-        <SideBtn text={"Events"} />
-        <SideBtn text={"Settings"} />
-        <SideBtn text={"Log out"} />
-      </div>
-    )
-  }
-}
-
-class SideBtn extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: "",
-    }
-  }
-  render() {
-    return (
-      <div class="side_btn">
-        {this.props.text}
-      </div>
-    )
-  }
-}
-
 class User {
-  constructor(name, picture, register_clubs, subscribe_clubs, register_events, subscribe_events) {
+  constructor(name, picture, tags, email, phone, register_clubs, subscribe_clubs, register_events, subscribe_events) {
     this.name = name;
     this.picture = picture;
+    this.tags = tags;
+    this.email = email;
+    this.phone = phone;
     this.register_clubs = register_clubs;
     this.subscribe_clubs = subscribe_clubs;
     this.register_events = register_events;
     this.subscribe_events = subscribe_events;
-
-
   }
 }
 
@@ -65,108 +20,195 @@ const club_ls_2 = ['club4', 'club5', 'club6'];
 const event_ls_1 = ['event1', 'event2', 'event3'];
 const event_ls_2 = ['event4', 'event5', 'event6'];
 
-const USER = new User("Ezra Cornell", require("../image/Ezra_Cornell.jpg"), club_ls_1, club_ls_2, event_ls_1, event_ls_2);
+const USER = new User("Ezra Cornell", require("../image/Ezra_Cornell.jpg"), ["Engineering", "Business", "Comedy"], "ce123@cornell.edu", "(1)123-456-7890", club_ls_1, club_ls_2, event_ls_1, event_ls_2);
 
-class MainContent extends React.Component {
+
+export default class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      shown_clubs: "subscribe",
-      shown_events: "subscribe"
+      user: USER
     }
-    this.renderClubList = this.renderClubList.bind(this)
-    this.switchToRegisterClubs = this.switchToRegisterClubs.bind(this)
-    this.switchToSubsribeClubs = this.switchToSubsribeClubs.bind(this)
-    this.switchToRegisterEvents = this.switchToRegisterEvents.bind(this)
-    this.switchToSubsribeEvents = this.switchToSubsribeEvents.bind(this)
+  }
+  render() {
+    return (
+      <div class="profile-page">
+        <LeftContent />
+        <RightContent />
+      </div>
+    )
+  }
+}
+
+class LeftContent extends React.Component {
+  renderTags() {
+    var tagComponent = USER.tags.map(tag =>
+      <div class='tag-btn'>{tag}</div>
+    )
+    return (
+      <div class='tag-btn-container'>
+        {tagComponent}
+      </div>
+    )
   }
 
-  renderClubList() {
+  renderClubs() {
+    var clubComponent = USER.register_clubs.map(club =>
+      <div class='your-club-img'><img src={require('../image/App+Dev+Logo+-+Red.png')} /></div>
+    )
 
-    var club_tags = [];
-    var clubs = [];
-
-    if (this.state.shown_clubs == "subscribe") {
-      clubs = USER.subscribe_clubs;
-    } else {
-      clubs = USER.register_clubs;
-    }
-
-    for (var i = 0; i < clubs.length; i++) {
-      club_tags.push(<div><img src="" alt={clubs[i]} height="100px" width="100px" /></div>)
-    }
-
-    return (<div>{club_tags}</ div>);
+    return (
+      <div class='your-club-gallery'>
+        {clubComponent}
+        <span class="arrow"><img src={require('../image/arrowRight.png')} /></span>
+      </div>
+    )
   }
 
-  renderEventList() {
-    var events_tags = [];
-    var events = [];
-
-    if (this.state.shown_events == 'subscribe') {
-      events = USER.subscribe_events;
-    } else {
-      events = USER.register_events;
-    }
-
-    for (var i = 0; i < events.length; i++) {
-      events_tags.push(<div><img src="" alt={events[i]} height="100px" width="100px" /></div>)
-    }
-
-    return (<div>{events_tags}</div>)
-  }
-
-  switchToRegisterClubs() {
-    this.setState({ shown_clubs: "register" })
-  }
-
-  switchToSubsribeClubs() {
-    this.setState({ shown_clubs: "subscribe" })
-  }
-
-  switchToRegisterEvents() {
-    this.setState({ shown_events: "register" })
-  }
-
-  switchToSubsribeEvents() {
-    this.setState({ shown_events: "subscribe" })
+  renderAppTag() {
+    return (
+      <div class='application-tag-wrapper'>
+        <ProfileApplicationTag name={"Cornell App Dev"} status={"Under Review"} picture={require('../image/App+Dev+Logo+-+Red.png')} date={"September 12, 2020 11:17 AM"} />
+        <ProfileApplicationTag name={"Cornell App Dev"} status={"Under Review"} picture={require('../image/App+Dev+Logo+-+Red.png')} date={"September 12, 2020 11:17 AM"} />
+      </div>
+    )
   }
 
   render() {
-    let sub_clubs_btn_class = this.state.shown_clubs == "subscribe" ? "switch_btn_active" : "switch_btn";
-    let reg_clubs_btn_class = this.state.shown_clubs == "register" ? "switch_btn_active" : "switch_btn";
-    let sub_events_btn_class = this.state.shown_events == "subscribe" ? "switch_btn_active" : "switch_btn";
-    let reg_events_btn_class = this.state.shown_events == "register" ? "switch_btn_active" : "switch_btn";
+    return (
+      <div class="left-content-wrapper">
+        <div class="picture-name-section">
+          <div class='user-pic'><img src={USER.picture} /></div>
+          <div class='user-name-tag'>
+            <h2>{USER.name}</h2>
+            {this.renderTags()}
+            <div class='btn-wrapper'>
+              <div class='setting-btn'>Settings</div>
+              <div class='setting-btn'>Log out</div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-section">
+          <div class='sub-contact-section'>
+            <h3>Email</h3>
+            <p>{USER.email}</p>
+          </div>
+          <div class='sub-contact-section'>
+            <h3>Phone</h3>
+            <p>{USER.phone}</p>
+          </div>
+        </div>
+        <div class='your-clubs-section'>
+          <h3 class='section-head'>Your Clubs</h3>
+          {this.renderClubs()}
+        </div>
+        <div class='your-application-section'>
+          <h3 class='section-head'>Your Applications</h3>
+          {this.renderAppTag()}
+          <div>
+
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+
+class ProfileApplicationTag extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: null,
+      status: null,
+      date: null,
+      picture: null,
+    }
+  }
+
+  render() {
+    return (
+      <div class='application-tag'>
+        <div class="application-img"><img src={this.props.picture} /></div>
+        <div class='application-text'>
+          <h4>{this.props.name}</h4>
+          <p>{this.props.status == 'Under Review' ? "Submitted" : "Unsubmit"}</p>
+          <p>{this.props.date}</p>
+        </div>
+        <div class='application-status'><span class="status-btn">{this.props.status}</span></div>
+      </div>
+    )
+  }
+}
+
+
+
+class RightContent extends React.Component {
+
+  renderClubs() {
+    var clubComponent = USER.subscribe_clubs.map(club =>
+      <div class='your-club-img'><img src={require('../image/App+Dev+Logo+-+Red.png')} /></div>
+    )
 
     return (
-      <div class="main_content">
-        <div class="profile_section content_section">
-          <h3>Profile</h3>
-          <p>
-            <div>{USER.name}</div>
-            <div><img src={USER.picture} length="100px" width="100px" /></div>
-          </p>
+      <div class='your-club-gallery'>
+        {clubComponent}
+        <span class="arrow"><img src={require('../image/arrowRight.png')} /></span>
+      </div>
+    )
+  }
+
+  renderEvents() {
+    return (
+      <div class='event-tag-wrapper'>
+        <ProfileEventTag name={"Big Red Hack"} host_club={"Cornell Appdev"} picture={require('../image/App+Dev+Logo+-+Red.png')} date={'Jun 1st - Jun 3rd, 2020'} location={'Ithaca, NY'} />
+        <ProfileEventTag name={"Big Red Hack"} host_club={"Cornell Appdev"} picture={require('../image/App+Dev+Logo+-+Red.png')} date={'Jun 1st - Jun 3rd, 2020'} location={'Ithaca, NY'} />
+        <ProfileEventTag name={"Big Red Hack"} host_club={"Cornell Appdev"} picture={require('../image/App+Dev+Logo+-+Red.png')} date={'Jun 1st - Jun 3rd, 2020'} location={'Ithaca, NY'} />
+        <ProfileEventTag name={"Big Red Hack"} host_club={"Cornell Appdev"} picture={require('../image/App+Dev+Logo+-+Red.png')} date={'Jun 1st - Jun 3rd, 2020'} location={'Ithaca, NY'} />
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <div class='right-content-wrapper'>
+        <div class='subscribed-club-section'>
+          <h3>Subscribed Clubs</h3>
+          {this.renderClubs()}
         </div>
-        <div class="club_section content_section">
-          <h3>Clubs</h3>
-          <div>
-            <div class={sub_clubs_btn_class} ><span onClick={() => this.switchToRegisterClubs()}>Your Clubs</span></div>
-            <div class={reg_clubs_btn_class}><span onClick={() => this.switchToSubsribeClubs()}>Subscribed Clubs</span></div>
-            {this.renderClubList()}
-          </div>
+        <div class='registered-event-section'>
+          <h3>Registered Events</h3>
+          {this.renderEvents()}
         </div>
-        <div class="event_section content_section">
-          <h3>Events</h3>
-          <div>
-            <div class={sub_events_btn_class}><span onClick={() => this.switchToRegisterEvents()}>Register Events</span></div>
-            <div class={reg_events_btn_class}><span onClick={() => this.switchToSubsribeEvents()} > Subscribed Events</span></div>
-            {this.renderEventList()}
-          </div>
+      </div>
+    )
+  }
+}
+
+class ProfileEventTag extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: null,
+      picture: null,
+      host_club: null,
+      date: null,
+      location: null,
+    }
+  }
+
+  render() {
+    return (
+      <div class="event-tag">
+        <div class="event-img"><img src={this.props.picture} /></div>
+        <div class='event-text'>
+          <h4>{this.props.name}</h4>
+          <p>By {this.props.host_club}</p>
         </div>
-        <div class="setting_section content_section">
-          <h3>Setting</h3>
+        <div class='event-time-loc'>
+          <p>{this.props.date}</p>
+          <p>{this.props.location}</p>
         </div>
-      </div >
+      </div>
     )
   }
 }
