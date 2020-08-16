@@ -128,18 +128,18 @@ class ClubList extends React.Component {
     render() {
         var clubComponent = this.props.clubs.map(club =>
 
-            <ClubButton title={club.title} logo={require('../image/club_logo2.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} applied={true} />
+            <ClubButton title={club.title} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} subscribed={true} />
 
         );
 
         return (
             <div class="club-list-container">
                 {clubComponent}
-                <ClubButton title={"Cornell Appdev"} logo={require('../image/club_logo2.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} applied={true} />
-                <ClubButton title={"Cornell Cup Robotics"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} applied={false} />
-                <ClubButton title={"Cornell Chinese Drama Society"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} applied={false} />
-                <ClubButton title={"Cornell Appdev"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} applied={false} />
-                <ClubButton title={"Cornell Appdev"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} applied={false} />
+                <ClubButton title={"Cornell Appdev"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} subscribed={true} />
+                <ClubButton title={"Cornell Cup Robotics"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} subscribed={false} />
+                <ClubButton title={"Cornell Chinese Drama Society"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} subscribed={false} />
+                <ClubButton title={"Cornell Appdev"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} subscribed={false} />
+                <ClubButton title={"Cornell Appdev"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} subscribed={false} />
 
             </div>
         );
@@ -155,9 +155,10 @@ class ClubButton extends React.Component {
             intro: null,
             tags: null,
             position: null,
-            applied: null,
+            subscribed: null,
         };
         this.ToClubHomePage = this.ToClubHomePage.bind(this);
+        this.handleSubscribe = this.handleSubscribe.bind(this)
     }
 
     ToClubHomePage(event) {
@@ -165,13 +166,19 @@ class ClubButton extends React.Component {
         history.push('/ClubHome');
         window.location.reload();
     }
+    s
+    handleSubscribe() {
+        this.setState({
+            subscribed: !this.state.subscribed
+        })
+    }
 
     renderApplyBtn() {
-        let text = (this.props.applied ? "Applied" : "Apply")
-        let style = (this.props.applied ? "apply-btn" : "apply-btn __not-applied")
+        let text = (this.state.subscribed ? "Subscribed" : "Subscribe")
+        let style = (this.state.subscribed ? "apply-btn" : "apply-btn __not-applied")
 
         return (
-            <div class={style}>{text}</div>
+            <div class={style} onClick={this.handleSubscribe}>{text}</div>
         )
     }
 
@@ -197,25 +204,23 @@ class ClubButton extends React.Component {
 
 
     render() {
-        return (
-            <div class='club-btn'>
 
-                <div class='club-info-section'>
-                    <div class='image-wrapper'><img src={this.props.logo} /></div>
+        let tag_style = (this.state.subscribed ? " __inset-shadow" : "")
+
+        return (
+            <div class={'club-btn' + tag_style}>
+
+                <div class={'club-info-section'}>
+                    <div class='image-wrapper' onClick={this.ToClubHomePage}><img src={this.props.logo} /></div>
 
                     <div class='text-wrapper'>
-                        <h3>{this.props.title}</h3>
+                        <h3 onClick={this.ToClubHomePage}>{this.props.title}</h3>
                         <p>{this.props.intro}</p>
                         <div class='industry-btn'>{this.props.tags}</div>
-                        <div class='more-btn'>
-                            <div class='dot' />
-                            <div class='dot' />
-                            <div class='dot' />
-                        </div>
                     </div>
                 </div>
 
-                <div class='application-info-section'>
+                <div class={'application-info-section'}>
                     {this.renderAppPostion()}
                     {this.renderApplyBtn()}
                 </div>

@@ -39,6 +39,10 @@
 
 }
 
+.__inset-shadow{
+  box-shadow: inset 1em 0em 1em rgba(0, 0, 0, 0.25) ;
+}
+
 .club-btn .club-info-section {
   
   display: flex; 
@@ -54,23 +58,18 @@
 .club-info-section .image-wrapper{
 
   flex: 33%;
-  
-  border-radius: 1em;
-  background-color: #4F69D0;
-  
-  padding: 0.6em 0.7em 0.8em;
   margin: 0.9em 1.1em 0.85em;
   
-  height: 9.4em;
-  width: 9.4em;
+  cursor: pointer;
 }
 
 .club-info-section .image-wrapper img {
   
-  height: 8em;
-  width: 8em;
+  height: 9.4em;
+  width: 9.4em;
 
-  opacity: 0.7;
+  border: 0.5em solid #4F69D0;
+  border-radius: 1.5em;
 }
 
 .club-info-section .text-wrapper{
@@ -78,6 +77,10 @@
   padding: 0.5em;
   
   text-align: left;
+}
+
+.text-wrapper h3{
+  cursor: pointer;
 }
 
 .text-wrapper .industry-btn{
@@ -96,35 +99,6 @@
   padding: 0.3em 0.2em 0.35em;
   margin-top: 1em;
 
-}
-
-.more-btn{
-  /* display: inline-block; */
-  width: 2em;
-  height: 2em;
-  background-color: #4F69D0;
-  border-radius: 50%;
-
-  text-align: center;
-  margin-left: 5.65em;
-
-  /* position: relative;
-  top: 0.6em; */
-
-  float:right;
-  margin-top: 0.9em;
-  margin-right: 1em;
-  
-}
-
-.dot{
-
-  display: inline-block;
-  width: 0.2em;
-  height: 0.2em;
-  border-radius: 50%;
-  background-color: #fff;
-  margin: 0.9em 0.1em 0.85em;
 }
 
 .club-btn .application-info-section {
@@ -148,8 +122,8 @@
 
 
 .apply-btn{
-  height: 1.5em;
-  width: 4.3em;
+  height: fit-content;
+  width: fit-content;
   
   background-color: #776DC8;
 
@@ -161,13 +135,14 @@
 
   border-radius: 1em;
   
-  padding: 0.15em 0.05em 0.1em;
+  padding: 0.35em;
   
   float: right;
   margin-top: 3em;
   margin-right: 1.7em;
   margin-bottom: 1em;
 
+  cursor: pointer;
 
 }
 
