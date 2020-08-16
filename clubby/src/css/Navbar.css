@@ -1,99 +1,76 @@
-.btn-space {
-    margin-right: 5px;
-    margin-top: 10px;
-    z-index: 1;
-}   
+
+Nav{
+  background-color: #fff;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  display:flex;
+  justify-content: space-between;
+
+  font-size: 24px;
+}
+
+.navbar-brand{
+  margin-top: 27px;
+}
 
 .logo {
     width: 296px;
-    height: 99px;
+    height: 96px;
 }
 
-Nav {
-    list-style-type: none;
-    margin: 0 0 -60px 0;
-    overflow: hidden;
-    background-color: #fff;
+.nav-container {
+    margin: 30px 10px 0 10px;
+    padding: 0;
+    display: flex;
   }
-  
-.nav-tags a, .navbar-brand{
-    float: left;
-    display: block;
-    text-align: bottom;
-    padding: 14px 16px;
+
+  .nav-link{
+    padding: 17px 37px 50px 37px;
     font-family: "SF Pro Rounded";
     font-style: normal;
     font-size: 24px;
-    border-bottom: 10px solid transparent;
     background-color: #fff;
-  }
-  
-  .nav-link {
-    height: 119px;
+    
     line-height: 29px;
     color: black;
     text-decoration: none;
-    border-radius: 20px;
-  }
-  
-  Nav.Link a {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-  }
 
-#home-page {
-    border-radius: 20px;
+  } 
+
+.__onpage {
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
     background-color: #BCB5F7;
 }
 
-  Nav.Link a:hover {
-    background-color: #111;
-  }
-
-  .nav-container{  
-    display: flex;
-    flex-direction: row;  
-  }
-
   .search-input {
     display: block;
-    margin-left: 50px;
-    flex: 2;  
+    
+    margin-top: 47px;
     background-color: #F1F3F4;
-    float: left;
-    width: 300px;
+    
+    width: 338px;
     height: 40px;
-    border-color: transparent;
     border-radius: 100px;
-  }
-  #search-area {
-    margin: 10px 0 0 80px;
-  }
-  .nav-container > li {  
-    flex: 1;  
-  }
-  .nav-container img{
-    margin-top: 20px;
-    height: 14px;
-    width: 22px;
-    cursor: pointer;
-    border: transparent;
-  }
 
+    border-color: transparent;
+  }
+  
   #dropdown-container {
     display:none;
-    padding-top: 30px;
     position: absolute;
+    padding-top: 30px;
     width: 220px;
     height: 336px;
     left: 1220px;
-    top: 189px;
+    top: 128px;
     background-color: #F1F3F4;
+    opacity:0.8;
     z-index: 2;
-    opacity: 0.8;
     border-radius: 30px 0px 0px 30px;
   }
+  
   #dropdown-details {
     position: relative;
     width: 100%;
@@ -102,17 +79,32 @@ Nav {
     flex-direction: column; 
   }
   
-  .dropdown-options{
+  .dropdown-options a{
     display:block;
     flex: 1;
-    font-family: "SF Pro Rounded";
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
     line-height: 29px;
     cursor: pointer;
     padding: 14px 16px;
+
+    text-decoration: none;
+    color:black;
   } 
+
+  .dropdown img, .navbar-toggler img{
+    margin: 60px 20px 20px 20px;
+    height: 14px;
+    width: 22px;
+    cursor: pointer;
+    border: transparent;
+  }
+
+  .navbar-toggler{
+    height:20px;
+    width:20px;
+  }
   
 
  

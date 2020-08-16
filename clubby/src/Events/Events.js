@@ -256,9 +256,9 @@ class EventButton extends React.Component {
           <RegisterButtom title={"Register"} count={0} bgColor={'#BCB5F7'} onChange={this.props.onChange}></RegisterButtom>
         </div>
         <div class='heart-buttom'>
-          <HeartButtom logo={require('./Heart.png')} clicked={0} ></HeartButtom>
+          <HeartButtom logo={require('./purple_heart.png')} clicked={0} ></HeartButtom>
         </div>
-      </div >
+      </div>
     );
   }
 }
@@ -331,7 +331,7 @@ class HeartButtom extends React.Component {
   toggleImage = () => {
     this.setState(state => ({ open: !state.open }))
   }
-  getImageName = () => this.state.open ? 'filled_heart' : 'Heart'
+  getImageName = () => this.state.open ? 'blue_heart' : 'blue_heart_empty'
 
   // handleClick = () => {
   //   this.setState(state => ({ open: !state.open }));

@@ -1,171 +1,227 @@
 import React, { Component } from 'react';
-import { Card, ListGroup } from 'react-bootstrap';
-import '../css/Clubs.css';
+import '../css/Application.css';
 import history from './../history';
 import axios from 'axios';
 
 class Clubs extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      clubs: []
+    constructor(props) {
+        super(props);
+        this.state = {
+            clubs: []
+        }
+
+        this.getAllClubs = this.getAllClubs.bind(this);
+        this.extractData = this.extractData.bind(this);
+        this.getAllClubs();
     }
 
-    this.getAllClubs = this.getAllClubs.bind(this);
-    this.extractData = this.extractData.bind(this);
-    this.getAllClubs();
-  }
-
-  extractData(response) {
-    var responseData = response.data['data'];
-    for (var i = 0; i < responseData.length; i++) {
-      var localClubs = this.state.clubs;
-      localClubs.push({ title: responseData[i]['name'] });
-      this.setState({ clubs: localClubs })
-      console.log("IN EXTRACTDATA:")
-      console.log(this.state.clubs.length)
+    extractData(response) {
+        var responseData = response.data['data'];
+        for (var i = 0; i < responseData.length; i++) {
+            var localClubs = this.state.clubs;
+            localClubs.push({ title: responseData[i]['name'] });
+            this.setState({ clubs: localClubs })
+            console.log("IN EXTRACTDATA:")
+            console.log(this.state.clubs.length)
+        }
     }
-  }
 
-  getAllClubs() {
-    axios({
-      method: 'GET',
-      url: 'http://127.0.0.1:5000/api/clubs',
-    })
-      .then((response) => this.extractData(response))
-      .catch(function (error) {
-        console.log(error)
-      })
-  }
+    getAllClubs() {
+        axios({
+            method: 'GET',
+            url: 'http://127.0.0.1:5000/api/clubs',
+        })
+            .then((response) => this.extractData(response))
+            .catch(function (error) {
+                console.log(error)
+            })
+    }
+    render() {
+        return (
+            <div class='clubs-page'>
+                <ClubList clubs={this.state.clubs} />
+                <Filter />
+            </div>
+        );
+    }
+}
 
-  render() {
-    return (
-      <div class="clublistpage">
-        <body>
-          <h1>Clubs</h1>
-          <div class='filter-list-container'>
-            <Filter />
-            <ClubList clubs={this.state.clubs} />
-          </div>
-        </body>
-      </div>
-    );
-  }
+class ClickableBox extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            clicked: false,
+            text: null
+        }
+        this.onClicked = this.onClicked.bind(this)
+    }
+
+    onClicked() {
+        this.setState({
+            clicked: !this.state.clicked
+        })
+    }
+
+    render() {
+        var circle_class = (this.state.clicked ? 'check-circle __dark' : 'check-circle')
+
+        return (
+            <div class="text-with-check-box">
+                <p onClick={this.onClicked}><div class={circle_class} />{this.props.text}</p>
+            </div>
+        );
+    }
 }
 
 class Filter extends React.Component {
 
-  renderClickableBox(text) {
-    return (
-      <div class="filter_check_box">
-        <p><a href=""></a>{text}</p>
-      </div>
-    );
-  }
 
-  render() {
-    return (
-      <div class="filter">
-        <h2>Filter</h2>
-        <div class='subscribed_clubs_filter'>
-          {this.renderClickableBox('Subscribed Clubs')}
-        </div>
-        <div class='search_bar_filter'>
-          <p>Search</p>
-          <textarea></textarea>
-        </div>
-        <div class='category_search_filter'>
-          <p>Category</p>
-          <textarea></textarea>
-          <div class='category_list'>
-            {this.renderClickableBox("Engineering")}
-            {this.renderClickableBox("Business")}
-            {this.renderClickableBox("Sport")}
-            {this.renderClickableBox("Pre-law")}
-            {this.renderClickableBox("Art")}
-          </div>
 
-        </div>
-        <div class='size_filter'>
-          <p>Club Size</p>
-          <div class='category_list'>
-            {this.renderClickableBox("10-20")}
-            {this.renderClickableBox("20-50")}
-            {this.renderClickableBox("50-100")}
-            {this.renderClickableBox("100-200")}
-          </div>
-        </div>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div class="filter-container">
+                <h2>Filters</h2>
+                <div class='filter-section'>
+                    <ClickableBox text={'Favorite Clubs'} />
+                </div>
+                <div class='filter-section'>
+                    <h3>Search</h3>
+                    <input type='text' />
+                </div>
+                <div class='filter-section'>
+                    <h3>Category</h3>
+                    <input type='text' />
+
+                    <ClickableBox text={'Engineering'} />
+                    <ClickableBox text={'Business'} />
+                    <ClickableBox text={'Sport'} />
+                    <ClickableBox text={'Pre-law'} />
+                    <ClickableBox text={'Art'} />
+
+                </div>
+                <div class='filter-section'>
+                    <h3>Registered</h3>
+
+                    <ClickableBox text={'10-20'} />
+                    <ClickableBox text={'20-50'} />
+                    <ClickableBox text={'50-100'} />
+                    <ClickableBox text={'100-200'} />
+
+                </div>
+            </div>
+        );
+    }
 }
 
+const pos1 = ["IOS Team", "ends October 2020"]
+const pos2 = ["Android Team", "ends October 2020"]
+const pos3 = ["Design Team", "ends October 2020"]
+
 class ClubList extends React.Component {
-  render() {
-    var clubComponent = this.props.clubs.map(club =>
+    constructor(props) {
+        super(props);
+        this.state = {
+            clubs: []
+        }
+    };
 
-      <ClubButton title={club.title} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={["engineering", "computer science"]} />
+    render() {
+        var clubComponent = this.props.clubs.map(club =>
 
-    );
+            <ClubButton title={club.title} logo={require('../image/club_logo2.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} applied={true} />
 
-    return (
-      <div class="clublist">
-        {clubComponent}
-      </div>
-    );
-  }
+        );
+
+        return (
+            <div class="club-list-container">
+                {clubComponent}
+                <ClubButton title={"Cornell Appdev"} logo={require('../image/club_logo2.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} applied={true} />
+                <ClubButton title={"Cornell Cup Robotics"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} applied={false} />
+                <ClubButton title={"Cornell Chinese Drama Society"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} applied={false} />
+                <ClubButton title={"Cornell Appdev"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} applied={false} />
+                <ClubButton title={"Cornell Appdev"} logo={require('../image/App+Dev+Logo+-+Red.png')} intro={"Cornell Univeristy's open source app development project team"} tags={"Engineering"} position={[pos1, pos2, pos3]} applied={false} />
+
+            </div>
+        );
+    }
 }
 
 class ClubButton extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      title: null,
-      logo: null,
-      intro: null,
-      tags: null,
-    };
-    this.ToClubHomePage = this.ToClubHomePage.bind(this);
-  }
-
-  ToClubHomePage(event) {
-    console.log("Sheldon")
-    history.push('/ClubHome');
-    window.location.reload();
-  }
-
-  renderClubTags() {
-
-    var tags = []
-
-    for (var i = 0; i < this.props.tags.length; i++) {
-      tags.push(<div class='club_tag'>{this.props.tags[i]}</div>)
+    constructor(props) {
+        super(props)
+        this.state = {
+            title: null,
+            logo: null,
+            intro: null,
+            tags: null,
+            position: null,
+            applied: null,
+        };
+        this.ToClubHomePage = this.ToClubHomePage.bind(this);
     }
 
-    return (
-      <div class='tag_wrapper'>
-        {tags}
-      </div>
-    )
-  }
+    ToClubHomePage(event) {
+        console.log("Sheldon")
+        history.push('/ClubHome');
+        window.location.reload();
+    }
+
+    renderApplyBtn() {
+        let text = (this.props.applied ? "Applied" : "Apply")
+        let style = (this.props.applied ? "apply-btn" : "apply-btn __not-applied")
+
+        return (
+            <div class={style}>{text}</div>
+        )
+    }
+
+    renderAppPostion() {
+
+        var position = []
+
+        for (var i = 0; i < this.props.position.length; i++) {
+            position.push(
+                <div class='app-position'>
+                    <p>{this.props.position[i][0]}</p>
+                    <p>{this.props.position[i][1]}</p>
+                </div>
+            )
+        }
+
+        return (
+            <div class='position-wrapper'>
+                {position}
+            </div>
+        )
+    }
 
 
-  render() {
-    return (
-      <div class='club_bt' onClick={this.ToClubHomePage}>
-        <div><img src={this.props.logo} /></div>
+    render() {
+        return (
+            <div class='club-btn'>
 
-        <div class='clubinfo'>
-          <div class='title'>{this.props.title}</div>
-          <div>{this.renderClubTags()}</div>
-          <div>{this.props.intro}</div>
-        </div>
+                <div class='club-info-section'>
+                    <div class='image-wrapper'><img src={this.props.logo} /></div>
 
-        <div class="sub_bt">Subscribe</div>
+                    <div class='text-wrapper'>
+                        <h3>{this.props.title}</h3>
+                        <p>{this.props.intro}</p>
+                        <div class='industry-btn'>{this.props.tags}</div>
+                        <div class='more-btn'>
+                            <div class='dot' />
+                            <div class='dot' />
+                            <div class='dot' />
+                        </div>
+                    </div>
+                </div>
 
-      </div >
-    );
-  }
+                <div class='application-info-section'>
+                    {this.renderAppPostion()}
+                    {this.renderApplyBtn()}
+                </div>
+            </div >
+        );
+    }
 }
 
 export default Clubs;

@@ -1,30 +1,55 @@
 import React from 'react';
 import '../css/Navbar.css';
-import { Navbar, Nav, Form, Button, FormControl, NavDropdow, Dropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Form, Button, FormControl, NavDropdow, Dropdown } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 
 const Navigation = (props) => {
     console.log(props);
+
+
+    var loc = String(window.location.pathname);
+    var home_tag_class = 'nav-link'
+    var club_tag_class = 'nav-link'
+    var event_tag_class = 'nav-link'
+    var app_tag_class = 'nav-link'
+    if (loc == "/") {
+        home_tag_class += ' __onpage'
+        console.log(home_tag_class)
+    } else if (loc == "/Clubs") {
+        club_tag_class += ' __onpage'
+    } else if (loc == "/Events") {
+        event_tag_class += ' __onpage'
+    } else if (loc == "/Applications") {
+        app_tag_class += ' __onpage'
+    }
+
+    console.log(home_tag_class)
+
     return (
-        <Navbar bg="primary" variant="light" expand="lg">
-            <Navbar.Brand class="logo" href="/"><img class="logo" src={require("../Clubby_Logo_cropped.JPG")} /></Navbar.Brand>
-            <ul class="nav-container">
-                <li class="nav-tags" ><Nav.Link id="home-page" href="/">&nbsp;&nbsp;Home&nbsp;&nbsp;</Nav.Link></li>
-                <li class="nav-tags" ><Nav.Link href="/Clubs">&nbsp;&nbsp;Clubs&nbsp;&nbsp;</Nav.Link></li>
-                <li class="nav-tags" ><Nav.Link href="/Events">&nbsp;&nbsp;Events&nbsp;&nbsp;</Nav.Link></li>
-                <li class="nav-tags" ><Nav.Link href="/Applications">Applications</Nav.Link></li>
-                <li id="search-area"><input type="text" class="search-input" placeholder="  Search" /></li>
-                <li className="dropdown" id="dropdown-area">
-                    <img className="menu" id="dropdown-icon" src={require("../menu-bar.png")} />
-                    <div id="dropdown-container">
-                        <ul id="dropdown-details">
-                            <li class="dropdown-options"><Nav.Link href="/Clubs">Profile</Nav.Link></li>
-                            <li class="dropdown-options"><Nav.Link href="/Clubs">Setting</Nav.Link></li>
-                            <li class="dropdown-options"><Nav.Link href="/Clubs">Help</Nav.Link></li>
-                            <li class="dropdown-options"><Nav.Link href="/Clubs">Log out</Nav.Link></li>
-                        </ul></div>
-                </li>
-            </ul>
+        <Navbar collapseOnSelect bg="primary" variant="light" expand="lg">
+            <Navbar.Brand href="/"><img className="logo" src={require("../Clubby_Logo_cropped.JPG")} /></Navbar.Brand>
+            {/* <Navbar.Toggle data-target="#responsive-navbar-nav"></Navbar.Toggle>
+            <Navbar.Collapse expand='sm' id="responsive-navbar-nav"> */}
+            <Nav className="nav-container">
+                <Nav.Link bsPrefix={home_tag_class} href="/">&nbsp;&nbsp;Home&nbsp;&nbsp;</Nav.Link>
+                <Nav.Link bsPrefix={club_tag_class} href="/Clubs">&nbsp;&nbsp;Clubs&nbsp;&nbsp;</Nav.Link>
+                <Nav.Link bsPrefix={event_tag_class} href="/Events">&nbsp;&nbsp;Events&nbsp;&nbsp;</Nav.Link>
+                <Nav.Link bsPrefix={app_tag_class} href="/Applications">Applications</Nav.Link>
+            </Nav>
+            <Form inline>
+                <FormControl type="text" placeholder="Search" className="search-input" />
+            </Form>
+            <Nav.Item className="dropdown" id="dropdown-area" as="li">
+                <img id="dropdown-icon" src={require("../menu-bar.png")} />
+                <div id="dropdown-container">
+                    <ul id="dropdown-details">
+                        <li className="dropdown-options"><a href="/Profile">Profile</a></li>
+                        <li className="dropdown-options"><a href="/Clubs">Setting</a></li>
+                        <li className="dropdown-options"><a href="/Clubs">Help</a></li>
+                        <li className="dropdown-options"><a href="/Clubs">Log out</a></li>
+                    </ul></div>
+            </Nav.Item>
+            {/* </Navbar.Collapse> */}
         </Navbar>
     )
 }
@@ -35,57 +60,16 @@ window.onload = function () {
     console.log(menu);
     menu.addEventListener("mouseover", function () {
         var tar = this.getElementsByTagName("div")[0]
-        // console.log(tar);
-        // console.log(event.target);
         tar.style.display = "block";
     }, false);
 
 
     menu.addEventListener("mouseout", function () {
         var tar = this.getElementsByTagName("div")[0]
-        // console.log(tar);
-        // console.log(event.target);
         tar.style.display = "none";
     }, false);
+
 }
 
-// const Navigation = (props) => {
-//     console.log(props);
-//     return (
-//         <Navbar bg="primary" variant="light" expand="lg">
-//             <Navbar.Brand class="logo" href="/"><img class="logo" src={require("../Clubby_Logo_cropped.JPG")} /></Navbar.Brand>
-//             {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
-//             <Navbar.Collapse id="basic-navbar-nav">
-//                 <Nav className="mr-auto">
-//                     <Nav.Link id="home-page" href="/">&nbsp;&nbsp;Home&nbsp;&nbsp;</Nav.Link>
-//                     <Nav.Link id="clubs-page" href="/Clubs">&nbsp;&nbsp;Clubs&nbsp;&nbsp;</Nav.Link>
-//                     <Nav.Link id="events-page" href="/Events">&nbsp;&nbsp;Events&nbsp;&nbsp;</Nav.Link>
-//                     <Nav.Link id="applications-page" href="/Applications">Applications</Nav.Link>
-//                     <Form class="form-inline">
-//                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-{/* <Button variant="outline-success">Search</Button> */ }
-// </Form>
-{/* <Dropdown>
-                        <Dropdown.Toggle variant="success" id="dropdown-basic">
-                            <img id="dropdown-icon" src={require("../menu-bar.png")} />
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown> */}
-{/* <NavDropdown title="drop" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="/">Profile</NavDropdown.Item>
-                        <NavDropdown.Item href="/">Setting</NavDropdown.Item>
-                        <NavDropdown.Item href="/">Help</NavDropdown.Item>
-                        <NavDropdown.Item href="/">Log out</NavDropdown.Item>
-                    </NavDropdown> */}
-//                 </Nav>
-
-//             </Navbar.Collapse>
-//         </Navbar>
-//     )
-// }
 
 export default withRouter(Navigation);
