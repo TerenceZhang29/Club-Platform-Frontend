@@ -256,7 +256,7 @@ class EventButton extends React.Component {
           <RegisterButtom title={"Register"} count={0} bgColor={'#BCB5F7'} onChange={this.props.onChange}></RegisterButtom>
         </div>
         <div class='heart-buttom'>
-          <HeartButtom logo={require('./purple_heart.png')} clicked={0} ></HeartButtom>
+          <HeartButtom logo={require('./blue_heart_empty.png')} clicked={0} ></HeartButtom>
         </div>
       </div>
     );
