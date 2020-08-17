@@ -178,7 +178,8 @@ class EventList extends React.Component {
     for (var i = 0; i < this.props.events.length; i++) {
       const id = i;
       eventList.push(
-        <div class={(this.state.shadow[id]) ? '__push' : 'event-item-' + (id + 1).toString()}>
+        // <div class={(this.state.shadow[id]) ? '__push' : 'event-item-' + (id + 1).toString()}>
+        <div class={(this.state.shadow[id]) ? '__push' : 'event-item-'} >
           <EventButton onChange={() => this.changeShadow(id)} title={this.props.events[id].title} logo={require('./hack.png')} intro={this.props.events[id].description} />
         </div>
       );
