@@ -10,6 +10,7 @@
   margin: 0; 
   
   padding: 0; 
+
 }
 
 .club-list-container {
@@ -21,7 +22,6 @@
   
   margin: 0;
   padding: 1em 2.8em;
-
 }
 
 .club-btn {
@@ -37,10 +37,11 @@
   display: flex;
   justify-content: space-between;
 
+
 }
 
 .__inset-shadow{
-  box-shadow: inset 1em 0em 1em rgba(0, 0, 0, 0.25) ;
+  box-shadow: inset 1em 1em 1em rgba(0, 0, 0, 0.25) ;
 }
 
 .club-btn .club-info-section {
@@ -52,7 +53,6 @@
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
 
-
 }
 
 .club-info-section .image-wrapper{
@@ -61,6 +61,7 @@
   margin: 0.9em 1.1em 0.85em;
   
   cursor: pointer;
+
 }
 
 .club-info-section .image-wrapper img {

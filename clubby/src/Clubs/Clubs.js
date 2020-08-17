@@ -208,7 +208,7 @@ class ClubButton extends React.Component {
         let tag_style = (this.state.subscribed ? " __inset-shadow" : "")
 
         return (
-            <div class={'club-btn' + tag_style}>
+            <div class={'club-btn __inset-shadow'}>
 
                 <div class={'club-info-section'}>
                     <div class='image-wrapper' onClick={this.ToClubHomePage}><img src={this.props.logo} /></div>
