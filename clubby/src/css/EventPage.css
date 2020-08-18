@@ -57,7 +57,7 @@
       width: 100%;
   }
   .register-btn-wrapper {
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
     background: #F1F3F4;
     border-radius: 1rem;
     width: 8em;
@@ -92,12 +92,12 @@
     cursor: pointer;
   }
 
-  .more-btn{
+  .register-more-wrapper .more-btn{
     width: 2em;
     height: 2em;
     background-color: #4F69D0;
     border-radius: 50%;
-    margin-left: 8.5rem;
+    margin-left: 7rem;
     margin-top: 2em;
     cursor: pointer;
   }
