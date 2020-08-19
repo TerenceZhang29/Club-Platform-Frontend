@@ -138,7 +138,7 @@
   width: 14.9em;
   border-radius: 0.5em;
 
-  filter: drop-shadow(0.25em 0.25em 0.5em rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0.5em 0.5em 0.5em rgba(0, 0, 0, 0.5));
   
   margin:  2em 3em;
   /* padding:  1em 1em 0em 1em; */
@@ -151,8 +151,7 @@
   width: 14.9em;
   border-radius: 0.5em;
 
-  /* filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.5)); */
-  box-shadow: inset 0.25em 0.25em 0.25em rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0.5em 0.5em 1em rgba(0, 0, 0, 0.5);
   
   margin:  2em 3em;
   /* padding:  0.5em 1em 0.5em 0.5em; */
@@ -173,10 +172,11 @@
   padding: 0;
   margin: 0em;
   font-size: 1em;
+  text-align: left;
 
   position: relative;
-  left: -2em;
-  top: 0em;
+  left: 1.8em;
+  top: 0.8em;
   /* border: black;
   border-style: solid;
   border-width: 5px; */
@@ -189,11 +189,11 @@
   padding: 0;
   margin: 0.5em;
   font-size: 0.9em;
+  text-align: left;
 
   position: relative;
-  top: 0em;
-  left: 2em;
-  text-align: left;
+  top: 1em;
+  left: 1.47em;
 /* 
   border: black;
   border-style: solid;
@@ -213,10 +213,10 @@
 
 .register-buttom img{
   position: relative;
-  height: 1.5em;
-  width: 4.0714em;
-  left: 0em;
-  top: 0em;
+  height: 2.25em;
+  width: 6.15em;
+  left: -2em;
+  top: -0.2em;
 }
 
 /* .regi-buttom {
@@ -236,8 +236,8 @@
 
 .heart-buttom img{
   position: relative;
-  width: 1.80525em;
-  height: 1.65em;
+  width: 1.55em;
+  height: 1.425em;
   left: -5em;
   top: 1.2em;
   filter: none;
